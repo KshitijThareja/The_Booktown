@@ -1,0 +1,57 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        white: "#fff",
+        gray: {
+          "100": "#8d8a8a",
+          "200": "#757575",
+          "300": "#242a3f",
+          "400": "#0a0a0a",
+          "500": "#060606",
+          "600": "#030303",
+          "700": "#020202",
+          "800": "rgba(0, 0, 0, 0.83)",
+          "900": "rgba(0, 0, 0, 0.67)",
+        },
+        darksalmon: "#e48d7a",
+        dimgray: "#4f4b6b",
+        black: "#000",
+        gainsboro: { "100": "#e0e0e0", "200": "rgba(217, 217, 217, 0)" },
+        mistyrose: "rgba(234, 212, 212, 0.37)",
+        midnightblue: "#0d2366",
+        slategray: "#515978",
+      },
+      fontFamily: {
+        "open-sans": "'Open Sans'",
+        quicksand: "Quicksand",
+        roboto: "Roboto",
+        montserrat: "Montserrat",
+        "space-grotesk": "'Space Grotesk'",
+        manrope: "Manrope",
+        lato: "Lato",
+      },
+      borderRadius: { xl: "20px", "65xl": "84px" },
+    },
+    fontSize: {
+      "3xl": "1.38rem",
+      "16xl": "2.19rem",
+      "37xl": "3.5rem",
+      "12xl": "1.94rem",
+      "14xl": "2.06rem",
+      "29xl": "3rem",
+      "13xl": "2rem",
+      "43xl": "3.88rem",
+      "11xl": "1.88rem",
+      "6xl": "1.56rem",
+      "7xl": "1.63rem",
+      "9xl": "1.75rem",
+    },
+  },
+  corePlugins: { preflight: false },
+};

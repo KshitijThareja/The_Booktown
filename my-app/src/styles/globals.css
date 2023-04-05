@@ -7,46 +7,125 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap');
+* {
   margin: 0;
-  line-height: normal;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Work Sans', sans-serif;
 }
-:root {
-  /* fonts */
-  --font-roboto: Roboto;
-  --font-open-sans: "Open Sans";
-  --font-quicksand: Quicksand;
-  --font-montserrat: Montserrat;
+a{
+  text-decoration: none;
+  color: inherit;
+}
+header{
+  position: sticky;
+  z-index: 30;
+  top: 0;
+}
+nav{
+  display: flex;
+  padding: 16px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f1f1;
+}
+.nav__menu-bar{
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+  cursor: pointer;
+}
+.nav__menu-bar div{
+  width: 40px;
+  height: 4px;
+  background-color: black;
+  border-radius: 2px;
+}
+.nav__menu-list{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 60px;
+  width: 288px;
+  row-gap: 24px;
+  right: -288px;
+  padding: 24px 16px;
+  transition: all 0.2s;
+  min-height: calc(100vh - 60px);
+  background-color: #f1f1f1;
+}
+.nav__menu-list.active{
+  right: 0;
+}
+.nav__link{
+  font-size: 18px; 
+  position: relative;
+  transition: all 0.2s;
+}
 
-  /* font sizes */
-  --font-size-14xl: 2.06rem;
-  --font-size-3xl: 1.38rem;
-  --font-size-16xl: 2.19rem;
-  --font-size-12xl: 1.94rem;
-  --font-size-29xl: 3rem;
-  --font-size-13xl: 2rem;
-  --font-size-43xl: 3.88rem;
+.nav__link:hover{
+ font-weight: bold;
+}
 
-  /* Colors */
-  --color-white: #fff;
-  --color-black: #000;
-  --color-gray-100: #0a0a0a;
-  --color-gray-200: rgba(0, 0, 0, 0.65);
-  --color-gray-300: rgba(0, 0, 0, 0.67);
-  --color-darksalmon: #e48d7a;
-  --color-dimgray: #4f4b6b;
+.center{
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .nav__menu-bar{
+    display: none;
+  }
+  .nav__menu-list{
+    position: unset;
+    flex-direction: row;
+    min-height: fit-content;
+    width: fit-content;
+    column-gap: 24px;
+    align-items: center;
+  }
+  .nav__link::before{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 6px;
+    bottom: -16px;
+    left: 0;
+    background-color: black;
+    transition: all 0.2s;
+  }
+  
+  .nav__link:hover:before{
+   width: 100%;
+  }
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30px;
+  text-align: center;
+}
 
-  /* Gaps */
-  --gap-10xs: 0.19rem;
+.flex-item-left {
+  padding: 10px;
+  flex: 50%;
+}
 
-  /* Paddings */
-  --padding-24xl: 2.69rem;
-  --padding-xl: 1.25rem;
-  --padding-13xl: 2rem;
+.flex-item-right {
+  padding: 10px;
+  flex: 50%;
+}
 
-  /* border radiuses */
-  --br-xl: 20px;
-  --br-5xs: 8px;
-  --br-65xl: 84px;
+/* Responsive layout - makes a one column-layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .flex-item-right, .flex-item-left {
+    flex: 100%;
+  }
 }

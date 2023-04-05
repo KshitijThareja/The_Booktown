@@ -1,5 +1,22 @@
 import '@/styles/globals.css'
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import React from "react";
+import Head from "next/head";
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <React.Fragment>
+      <Head>
+        <title>figma</title>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+      </Head>
+      <Component {...pageProps} />
+  
+    </React.Fragment>
+  );
 }
+
+export default MyApp;
