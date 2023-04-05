@@ -653,30 +653,3 @@
   width: 7.63rem;
   height: 2.38rem;
 } */
-.signUp {
-  position: absolute;
-  top: 1.5rem;
-  left: 4.31rem;
-  font-weight: 500;
-  display: inline-block;
-  width: 7.63rem;
-  height: 2.38rem;
-}
-.accountButton,
-.accountButtonChild {
-  position: absolute;
-  width: 16.25rem;
-  height: 5.5rem;
-} 
-.macbookPro141 {
-  position: relative;
-  background-color: var(--color-white);
-  width: 50%;
-  height: 70%;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  text-align: left;
-  font-size: var(--font-size-16xl);
-  color: var(--color-black);
-  font-family: var(--font-roboto);
-}

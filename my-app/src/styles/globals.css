@@ -1,46 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  line-height: normal;
+  @apply leading-[normal] m-0;
 }
-:root {
-  /* fonts */
-  --font-roboto: Roboto;
-  --font-open-sans: "Open Sans";
-  --font-quicksand: Quicksand;
-  --font-montserrat: Montserrat;
-
-  /* font sizes */
-  --font-size-14xl: 2.06rem;
-  --font-size-3xl: 1.38rem;
-  --font-size-16xl: 2.19rem;
-  --font-size-12xl: 1.94rem;
-  --font-size-29xl: 3rem;
-  --font-size-13xl: 2rem;
-  --font-size-43xl: 3.88rem;
-
-  /* Colors */
-  --color-white: #fff;
-  --color-black: #000;
-  --color-gray-100: #0a0a0a;
-  --color-gray-200: rgba(0, 0, 0, 0.65);
-  --color-gray-300: rgba(0, 0, 0, 0.67);
-  --color-darksalmon: #e48d7a;
-  --color-dimgray: #4f4b6b;
-
-  /* Gaps */
-  --gap-10xs: 0.19rem;
-
-  /* Paddings */
-  --padding-24xl: 2.69rem;
-  --padding-xl: 1.25rem;
-  --padding-13xl: 2rem;
-
-  /* border radiuses */
-  --br-xl: 20px;
-  --br-5xs: 8px;
-  --br-65xl: 84px;
+*,
+::before,
+::after {
+  border-width: 0;
 }
