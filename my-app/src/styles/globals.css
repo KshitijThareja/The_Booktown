@@ -6,7 +6,9 @@
 @tailwind utilities;
 
 body {
-  @apply leading-[normal] m-0;
+  /* @apply leading-[normal] m-0; */
+  width: 100vw;
+  height: 100vh;
 }
 *,
 ::before,
