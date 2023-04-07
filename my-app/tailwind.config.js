@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -12,6 +13,7 @@ module.exports = {
       colors: {
         white: "#fff",
         black: "#000",
+        transparent: "#000ffffff",
         gray: {
           "100": "#0a0a0a",
           "200": "#030303",
@@ -33,19 +35,16 @@ module.exports = {
       },
       borderRadius: { xl: "20px", "65xl": "84px" },
     },
-    // fontSize: {
-    //   "14xl": "2.06rem",
-    //   "3xl": "1.38rem",
-    //   "4xl": "1.5rem",
-    //   "5xl": "1.63rem",
-    //   "6xl": "2.00rem",
-    //   "16xl": "2.19rem",
-    //   "12xl": "1.94rem",
-    //   "29xl": "3rem",
-    //   "13xl": "2rem",
-    //   "43xl": "3.88rem",
-    //   "44xl": "4rem",
-    // },
+    fontSize: {
+      "14xl": "2.06rem",
+      "3xl": "1.38rem",
+      "2xl": "1.20rem",
+      "16xl": "2.19rem",
+      "12xl": "1.94rem",
+      "29xl": "3rem",
+      "13xl": "2rem",
+      "43xl": "3.88rem",
+    },
   },
   corePlugins: { preflight: false },
 };
