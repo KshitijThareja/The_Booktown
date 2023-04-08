@@ -1,8 +1,9 @@
 import MainNavigation from "./main-navigation";
+import Link from 'next/link';
   const LandingPage = () => {
     return (
         
-      
+      <div className="relative w-full h-screen">
       <div className="container ">
       <div>
         <MainNavigation />
@@ -107,6 +108,7 @@ import MainNavigation from "./main-navigation";
                 OUR OPERATIONAL MODEL
               </div>    
                     
+        </div>
         </div>
         </div>
               

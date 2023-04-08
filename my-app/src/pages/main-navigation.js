@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {FiMenu} from "react-icons/fi";
+import Link from 'next/link';
 function MainNavigation(){
     const [open, setOpen]= useState(false);
     return (
@@ -13,7 +14,8 @@ function MainNavigation(){
                         <a className="lg:px-5 py-2 block hover:text-darksalmon font-semibold" href="#">Home</a>
                         </li>
                         <li>
-                        <a className="lg:px-5 py-2 block hover:text-darksalmon font-semibold" href="#">About</a>
+                       
+                        <Link className="lg:px-5 py-2 block hover:text-darksalmon font-semibold" href="/About">About</Link>
                         </li>
                         <li>
                         <a className="lg:px-5 py-2 block hover:text-darksalmon font-semibold" href="#">Donate</a>
@@ -22,10 +24,10 @@ function MainNavigation(){
                         <a className="lg:px-5 py-2 block hover:text-darksalmon font-semibold" href="#">Contact</a>
                         </li>
                         
-                        <li><button className={`px-4 py-2 block bg-white text-black font-semibold border border-black rounded cursor-pointer hover:bg-black hover:text-white hover:border-black mr-6 ml-6 rounded-lg shadow ${open ? "my-2 ml-0" : ""}`}>Sign up
+                        <li><button className={`px-4 py-2 block bg-white text-black font-semibold border border-black rounded cursor-pointer hover:bg-black hover:text-white hover:border-black mr-6 ml-6 mt-0 rounded-lg shadow ${open ? "my-2 ml-0.5" : ""}`}>Sign up
                         </button></li>
                         <li>
-                        <button className="px-4 py-2 block bg-black text-white font-semibold border border-black rounded cursor-pointer hover:bg-white hover:text-black hover:border-black  rounded-lg shadow">Login</button>
+                        <button className={`px-5 py-2 block bg-black text-white font-semibold border border-black rounded cursor-pointer hover:bg-white hover:text-black hover:border-black mt-0 rounded-lg shadow ${open ? "my-2 ml-0.5" : ""}`}>Login</button>
                         </li>
 
 
