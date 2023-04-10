@@ -9,8 +9,8 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>figma</title>
         <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
+          name="viewport "
+          content="minimum-scale=1, initial-scale=1, width=device-width, viewport-fit=cover"
         />
       </Head>
       <Component {...pageProps} />

@@ -10,4 +10,3 @@ const button = ({title}) => {
 }
 
 export default button
-

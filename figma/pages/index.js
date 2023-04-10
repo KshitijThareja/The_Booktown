@@ -52,7 +52,7 @@ const AboutPage = () => {
           throughout our lives in shaping person our future Money is not a big
           concern for us and thus, we don’t accept donations in cash. If you
           really want to help someone, just donate us your old books, books that
-          you don’t anymore. As a nonprofit organization, our dream is to see a
+          you don't anymore. As a nonprofit organization, our dream is to see a
           world where no one has to worry for these knowledgeable assets.
         </div>
         <div className="absolute top-[0rem] left-[0rem] w-[39.75rem] h-[6.63rem] text-left text-[3.5rem] text-darksalmon font-quicksand">

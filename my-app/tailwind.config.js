@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        '5px': '5px',
+      },
       colors: {
         white: "#fff",
         black: "#000",
@@ -17,6 +20,7 @@ module.exports = {
           "300": "#020202",
           "400": "rgba(0, 0, 0, 0.83)",
           "500": "rgba(0, 0, 0, 0.67)",
+          "600": "rgba(216, 145, 126, 0.5)",
         },
         darksalmon: "#e48d7a",
         dimgray: "#4f4b6b",
