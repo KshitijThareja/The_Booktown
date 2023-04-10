@@ -3,11 +3,19 @@ import Link from 'next/link';
   const LandingPage = () => {
     return (
         
-      <div className="relative w-full h-screen">
-      <div className="container ">
+   
+      < div className="container ">
       <div>
         <MainNavigation />
-        
+        <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="md:flex">
+        <img
+            className=" top-[8.00rem] left-[44.5rem] rounded-tl-65xl rounded-tr-none rounded-br-none rounded-bl-65xl w-[46.25rem] h-[32.25rem] object-cover"
+            alt=""
+            src="/b8163268619025e9e0b33c10b504850b-1@2x.png"
+          />
+        </div>
        
         <div className="flex flex-row items-center justify-center min-w-screen px-2">
         
@@ -21,11 +29,9 @@ import Link from 'next/link';
           </p>
         
         
-          <img
-            className="absolute top-[8.00rem] left-[44.5rem] rounded-tl-65xl rounded-tr-none rounded-br-none rounded-bl-65xl w-[46.25rem] h-[32.25rem] object-cover"
-            alt=""
-            src="/b8163268619025e9e0b33c10b504850b-1@2x.png"
-          />
+        
+        </div>
+        </div>
         </div>
         <div>
           <button className="absolute top-[29.56rem] left-[7.25rem] px-7 py-3 bg-black text-white font-semibold border border-black rounded cursor-pointer hover:bg-white hover:text-black hover:border-black">
@@ -110,7 +116,10 @@ import Link from 'next/link';
                     
         </div>
         </div>
-        </div>
+        
+
+        
+
               
           
 

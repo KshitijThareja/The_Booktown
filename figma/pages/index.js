@@ -37,7 +37,7 @@ const AboutPage = () => {
         </div>
       </div>
       <img
-        className="absolute top-[14.38rem] left-[0rem] w-[146.38rem] h-[27.94rem] object-cover"
+        className="absoluttop-[14.38rem] left-[0rem] w-[146.38rem] h-[27.94rem] object-covere "
         alt=""
         src="/image-4@2x.png"
       />

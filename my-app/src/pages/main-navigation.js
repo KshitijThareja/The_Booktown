@@ -11,7 +11,7 @@ function MainNavigation(){
                 <nav className={`w-full lg:flex lg:items-center lg:w-auto bg-white ${open ? "block" : "hidden"}`}>
                     <ul className=" text-base text-gray-500 lg:flex lg:justify-between list-none">
                         <li>
-                        <a className="lg:px-5 py-2 block hover:text-darksalmon font-semibold" href="#">Home</a>
+                        <Link className="lg:px-5 py-2 block hover:text-darksalmon font-semibold" href="/">Home</Link>
                         </li>
                         <li>
                        
