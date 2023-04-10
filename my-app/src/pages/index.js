@@ -34,22 +34,22 @@ const LandingPage = () => {
      
     
     <div className="mt-5 p-8 grid grid-cols-1 md:grid-cols-3 sm:justify-items-center">
-    <div className="md:col-span-2 sm:justify-self-stretch">
+    <div className="md:col-span-2 sm:justify-self-stretch sm:justify-self-end ">
 
     <img
-      className=" rounded-tl-65xl rounded-tr-none rounded-br-none rounded-bl-65xl  h-30 md:h-70 w-[49.4rem] h-[32.25rem]"
+      className=" rounded-tl-65xl rounded-tr-none rounded-br-none rounded-bl-65xl  h-30 md:h-70 w-[49.4rem] h-[32.25rem]  "
       alt=""
       src="/b8163268619025e9e0b33c10b504850b-1@2x.png"
     />
     </div>  
-    <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-8 md:grid-cols-1 md:gap-0 md:content-start md:mt-12 md:order-first">
+    <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-8 md:grid-cols-1 md:gap-x-6 md:content-start md:mt-12 md:order-first">
     <div>
           <p className="[border:none] bg-[transparent] justify-center block font-montserrat text-[2.19rem] ">
           A world of books at <br/> your fingertips.
           </p>
           <p className="[border:none] bg-[transparent]  font-montserrat-thin mt-3 md:mt-6 text-[1.19rem] mb-4">
-          Welcome to our website, where you can give your gently used
-          books a new life and help spread the joy of 
+          Welcome to our website, where you<br/> can give your gently used
+          books a<br/> new life and help spread the joy of <br/>
           reading to others.
           </p>
         
