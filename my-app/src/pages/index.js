@@ -28,23 +28,22 @@ const LandingPage = () => {
     <div className="">
       <MainNavigation />
 
-      <div className="mt-5 p-8 grid grid-cols-1 md:grid-cols-2 md:px-6 sm:justify-items-center ">
-        <div className=" sm:justify-self-stretch md:justify-self-end">
+      <div className="mt-5 p-8 grid grid-cols-1 md:grid-cols-2 md:px-0 sm:justify-items-center place-items-center">
+        <div className=" sm:justify-self-center md:justify-self-end">
           <img
             className=" rounded-tl-65xl rounded-tr-none rounded-br-none rounded-bl-65xl  h-30 md:h-70 w-[49.4rem] h-[32.25rem]"
             alt=""
             src="/b8163268619025e9e0b33c10b504850b-1@2x.png"
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-8 md:grid-cols-1 md:gap-x-6 md:content-start md:mt-12 md:order-first">
+        <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-1 md:gap-x-6 md:ml-7 md:content-start md:mt-12 md:order-first">
           <div className=" md:mr-60">
-            <p className="[border:none] bg-[transparent] justify-center block font-montserrat text-[2.5rem]">
-              A world of books at <br /> your fingertips.
+            <p className="[border:none] bg-[transparent] justify-self-center block font-montserrat text-[2.5rem]">
+              A world of books at your fingertips.
             </p>
             <p className="[border:none] bg-[transparent] font-montserrat-thin mt-3 md:mt-6 text-[1.39rem] mb-4">
-              Welcome to our website, where you
-              <br /> can give your gently used books a<br /> new life and help
-              spread the joy of <br />
+              Welcome to our website, where you can give your gently used books
+              a new life and help spread the joy of
               reading to others.
             </p>
           </div>
