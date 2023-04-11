@@ -18,12 +18,14 @@ from django.urls import path
 from django.urls import include
 from rest_framework import routers
 from api import views
+from rest_framework_simplejwt import views as jwt_views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 urlpatterns = [
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    # path('hello/', views.hello, name='hello'),
-
+    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/user/', views.UserAPIView.as_view(), name='login')
 ]

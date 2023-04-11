@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 
 import React from "react";
 import Head from "next/head";
+import { AuthenticationProvider } from '@/context/AuthenticationContext';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -13,7 +14,10 @@ function MyApp({ Component, pageProps }) {
           content="minimum-scale=1, initial-scale=1, width=device-width, viewport-fit=cover"
         />
       </Head>
-      <Component {...pageProps} />
+      <AuthenticationProvider>
+        <Component {...pageProps} />
+      </AuthenticationProvider>
+      
   
     </React.Fragment>
   );
