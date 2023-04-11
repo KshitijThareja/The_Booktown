@@ -18,7 +18,6 @@ export default async (req, res) => {
       username,
       password
     }
-
     try {
       const { data:accessResponse } = await axios.post('http://localhost:8000/api/token/', body, config)
       accessToken = accessResponse.access

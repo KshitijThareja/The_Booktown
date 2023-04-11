@@ -14,7 +14,7 @@ function Login(){
         e.preventDefault();
         console.log(username)
         console.log(password)
-        login({username, password})
+         login({username, password})
     }
   
     return(
@@ -35,7 +35,7 @@ function Login(){
                     <div className="flex flex-col items-center ">
                     <form onSubmit={submitHandler}>
                         <div className="bg-gray-50 w-64 p-2 flex items-center">
-                        <input type="text" id="username" className="bg-gray-50 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon block w-full p-2.5  flex-1" placeholder="username/Username" onChange={e => setUsername(e.target.value)} value={username} required />
+                        <input type="text" id="username" className="bg-gray-50 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon block w-full p-2.5  flex-1" placeholder="Email/Username" onChange={e => setUsername(e.target.value)} value={username} required />
 
                         </div>
                         <div className="bg-gray-50 w-64 p-2 flex items-center">

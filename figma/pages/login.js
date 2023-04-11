@@ -28,7 +28,7 @@ const Login = () => {
         <div className="relative">Password</div>
       </div>
       <div className="absolute top-[80.06rem] left-[95.69rem] w-[32.81rem] h-[2.44rem] flex flex-row items-start justify-start gap-[0.5rem] text-[1.56rem]">
-        <div className="relative">Don’t have an account?</div>
+        <div className="relative">Don't have an account?</div>
         <div className="relative [text-decoration:underline] font-medium">
           Sign up for free
         </div>

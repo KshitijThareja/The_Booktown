@@ -3,30 +3,36 @@ const AboutPage = () => {
   return (
 
 
-      <div>
+      <div className="">
         <MainNavigation />
 
           <div className="flex">
 
-            <div className="flex-1">
-              <img className="md:h-70 w-[120rem] h-[20.25rem] z-0 " src="/image-4@2x.png" />
-              </div>
-              <div> <p className="absolute top-[12.06rem] left-[32.13rem] text-white text-[3.56rem] leading-[4.88rem] flex font-quicksand text-center items-center justify-center w-[22.13rem] h-[6.5rem] ">About</p></div>
+          <div style={{
+          backgroundImage: `url("/image-4@2x.png")`,
+          height: '30vh',
+          width: '210vh',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+        }}className=" text-white text-[3.56rem] leading-[4.88rem] flex font-quicksand text-center items-center justify-center w-[50.13rem] h-[6.5rem]">About</div>
             
             </div>
-            <div className =" grid grid-cols-1 md:grid-cols-2 md:gap-x-12 sm:grid-cols-1 sm:justify-items-center sm:gap-x-20 md:mt-6">
-              <div className="sm:justify-self-center md:cols-span-2 ">
+            <div className =" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:gap-x-6 place-items-center">
+              <div className="md:justify-self-start md:mt-5 ">
                 <img
-                  className="rounded-[53px] w-[38.13rem] h-[23.75rem] "
+                  className="rounded-[50px] md:w-[37.13rem] md:h-[27.13rem] w-[21.13rem] h-[15.75rem] "
                   alt=""
                   src="/image-5@2x.png"
                 />
               </div>
-              <div className=" md:text-center md:justify-self-center sm:text-center md:mr-5">
-                <h1 className=" md:mt-12  text-[3.04rem] text-center font-semibold  text-darksalmon font-quicksand">
+              {/* <div className="container md:w-[2rem]">
+
+              </div> */}
+              <div className="justify-self-center md:ml-30 md:mr-4 ">
+                <h1 className="text-[2.44rem] md:text-[3.3rem] text-center font-semibold  text-darksalmon font-quicksand">
                   Welcome to Booktown Foundation
                 </h1>
-                <p className="text-[1.5rem] md:mt-6">Booktown Foundation is a non-profit organization
+                <p className="text-[1rem] md:text-[1.3rem] text-center md:mt-3 leading-[2rem]">Booktown Foundation is a non-profit organization
                 that provides books to the needy in multiple Indian languages.
                 Everyone has the right to read and we ensure it. Books help us
                 throughout our lives in shaping person our future Money is not a big
