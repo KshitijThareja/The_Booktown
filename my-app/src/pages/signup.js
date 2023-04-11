@@ -19,21 +19,21 @@ function Signup(){
                     </div>
                     <div className="flex flex-col items-center ">
                         <div className="bg-gray-50 w-64 p-2 flex items-center">
-                        <input type="text" id="email" class="bg-gray-50 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon block w-full p-2.5  flex-1" placeholder="Email" required />
+                        <input type="text" id="email" className="bg-gray-50 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon block w-full p-2.5  flex-1" placeholder="Email" required />
 
                         </div>
                         <div className="bg-gray-50 w-64 p-2 flex items-center">
-                        <input type="text" id="email" class="bg-gray-50 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon block w-full p-2.5  flex-1" placeholder="Username" required />
+                        <input type="text" id="email" className="bg-gray-50 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon block w-full p-2.5  flex-1" placeholder="Username" required />
 
                         </div>
                         <div className="bg-gray-50 w-64 p-2 flex items-center">
-                        <input type="text" id="password" class="bg-gray-50 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon block w-full p-2.5 flex-1" placeholder="Password" required />
+                        <input type="text" id="password" className="bg-gray-50 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon block w-full p-2.5 flex-1" placeholder="Password" required />
 
                         </div>
                         <div className="flex w-64 mb-5 mt-7">
                             <label className="flex items-center text-[0.9rem]"><input type="checkbox" name="remember" className="mr-1"></input>Remember me</label>
                         </div>
-                        <a href="#" className=" border border-darksalmon text-darksalmon rounded-full px-12 py-2 inline-block font-semibold hover:bg-darksalmon hover:text-white">Sign in</a>
+                        <button className=" border border-darksalmon text-darksalmon bg-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-darksalmon hover:text-white" type="submit">Sign up</button>
                     </div>
                     
                 </div>
