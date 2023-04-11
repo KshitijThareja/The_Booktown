@@ -1,5 +1,4 @@
 import Head from "next/head";
-import MainNavigation from "./main-navigation";
 import AuthenticationContext from '../context/AuthenticationContext'
 import { useState, useContext } from "react";
 import { FaFacebookF, FaEnvelope, FaRegEnvelope } from 'react-icons/fa';
@@ -15,7 +14,7 @@ function Signup() {
     const submitHandler = e => {
         e.preventDefault();
 
-        //   console.log({username, email, password})
+        console.log({username, email, password})
         register({ username, email, password })
     }
 
