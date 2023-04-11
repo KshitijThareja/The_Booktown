@@ -7,7 +7,7 @@ const AboutPage = () => {
       <div>
         <MainNavigation />
 
-        <div class="container mx-auto">
+      
           <div class="grid grid-cols-1 md:grids-cols-3 gap-y-6 gap-x-6">
 
             <div class=" sm:justify-self-stretch lg:col-span-4">
@@ -46,7 +46,7 @@ const AboutPage = () => {
         </div>
 
       </div>
-    </div>
+
 
 
 

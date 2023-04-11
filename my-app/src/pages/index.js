@@ -29,21 +29,21 @@ import MainNavigation from "./main-navigation";
 const LandingPage = () => {
   return (
     
-    <div className="container">
+    <div className="">
       <MainNavigation />
      
     
-    <div className="mt-5 p-8 grid grid-cols-1 md:grid-cols-3 sm:justify-items-center">
-    <div className="md:col-span-2 sm:justify-self-stretch sm:justify-self-end ">
+    <div className="mt-5 p-8 grid grid-cols-1 md:grid-cols-2  sm:justify-items-center ">
+    <div className=" sm:justify-self-stretch  md:justify-self-end ">
 
     <img
-      className=" rounded-tl-65xl rounded-tr-none rounded-br-none rounded-bl-65xl  h-30 md:h-70 w-[49.4rem] h-[32.25rem]  "
+      className="ml-3rounded-tl-65xl rounded-tr-none rounded-br-none rounded-bl-65xl  h-30 md:h-70 w-[49.4rem] h-[32.25rem] "
       alt=""
       src="/b8163268619025e9e0b33c10b504850b-1@2x.png"
     />
     </div>  
     <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-8 md:grid-cols-1 md:gap-x-6 md:content-start md:mt-12 md:order-first">
-    <div>
+    <div className="">
           <p className="[border:none] bg-[transparent] justify-center block font-montserrat text-[2.19rem] ">
           A world of books at <br/> your fingertips.
           </p>
