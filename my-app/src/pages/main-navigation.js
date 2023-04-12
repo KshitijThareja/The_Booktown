@@ -9,8 +9,9 @@ function MainNavigation(){
         <header className="border-b border-gray-200 bg-white py-2 block">
             <div className="flex items-center justify-between xl:max-w-8xl  max-w-full px-[8%] flex-wrap w-full">
                 <img src="/your-place-to-readremovebgpreview-1@2x.png" width={210} height={65} />
+                
             
-                <FiMenu className="lg:hidden block h-6 w-6 md:justify-end cursor-pointer" onClick={()=>setOpen(!open)} />
+                <FiMenu className="lg:hidden block h-6 w-6 md:justify-end  cursor-pointer" onClick={()=>setOpen(!open)} />
             
                 
                 <nav className={`w-full lg:flex lg:items-center lg:w-auto bg-white ${open ? "block" : "hidden"}`}>
