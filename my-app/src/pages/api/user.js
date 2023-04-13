@@ -17,7 +17,7 @@ export default async (req, res) => {
 				}
 			}
 
-			const body = { 
+			const body = {
 				refresh
 			}
 
