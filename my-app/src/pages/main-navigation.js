@@ -11,8 +11,8 @@ function MainNavigation(){
                 <img src="/your-place-to-readremovebgpreview-1@2x.png" width={210} height={65} />
                 
             
-                <FiMenu className="lg:hidden block h-6 w-6 md:justify-end  cursor-pointer" onClick={()=>setOpen(!open)} />
-            
+                <FiMenu className="lg:hidden block h-6 w-6 md:justify-end cursor-pointer" onClick={()=>setOpen(!open)} />
+        
                 
                 <nav className={`w-full lg:flex lg:items-center lg:w-auto bg-white ${open ? "block" : "hidden"}`}>
                     <ul className=" text-base text-gray-500 lg:flex lg:justify-between list-none">
