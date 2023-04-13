@@ -4,7 +4,7 @@ import Link from 'next/link';
 import AuthenticationContext from '../context/AuthenticationContext'
 function MainNavigation(){
     const [open, setOpen]= useState(false);
-    const {user} = useContext(AuthenticationContext)
+    const {user,logout} = useContext(AuthenticationContext)
     const handleLogout = async e => {
         e.preventDefault()
         await logout()
