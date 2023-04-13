@@ -89,12 +89,34 @@ export const AuthenticationProvider = ({ children }) => {
 	      return
 		}
 	}
+	const logout =  async() => {
+		try {
+			await axios .post('http://localhost:3000/api/logout')
+			setUser(null)
+			setAccessToken(null)
+	
+		} catch(error) {
+			if (error.response & error.response.data) {
+				setError(error.response.data.message)
+				return      
+			} else if (error.request) {
+			  setError('Something went wrong')
+			  return  
+			} else {
+			  setError('Something went wrong')
+			  return
+			}
+			console.error('Error', error.message);
+			setError('Something went wrong')
+			return}
+		}
+
 
 	return (
-		<AuthenticationContext.Provider value={{ user, accessToken, error, login,register }}>
+		<AuthenticationContext.Provider value={{ user, accessToken, error, login,register,logout }}>
 			{children}
 		</AuthenticationContext.Provider>
 	)
-}
+	}
 
-export default AuthenticationContext;
+export default AuthenticationContext ;
