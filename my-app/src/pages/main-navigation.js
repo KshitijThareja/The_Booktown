@@ -51,7 +51,7 @@ function MainNavigation(){
                         
                             <li>
                             <Link href="/logout" passHref ></Link>
-                             <button className="lg:px-5 py-2 block hover:text-darksalmon font-semibold hover:scale-110 ease-in duration-300" onClick={handleLogout} >Log out</button>
+                             <button className="px-5 py-2 block bg-black text-white font-semibold border border-black cursor-pointer hover:bg-white hover:text-black hover:border-black mt-0 rounded-lg shadow hover:scale-110 ease-in duration-300" onClick={handleLogout} >Log out</button>
                             </li>): (
                             <li> <Link href="/login" passHref>
                             <button className={`px-5 py-2 block bg-black text-white font-semibold border border-black cursor-pointer hover:bg-white hover:text-black hover:border-black mt-0 rounded-lg shadow hover:scale-110 ease-in duration-300 ${open ? "my-2 ml-0.5" : ""}`}>Login</button>
