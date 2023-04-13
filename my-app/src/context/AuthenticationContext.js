@@ -1,4 +1,4 @@
-import { createContext, useState,useEffect } from 'react'
+import { createContext, useState, useEffect } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 
@@ -10,12 +10,12 @@ export const AuthenticationProvider = ({ children }) => {
 	const [error, setError] = useState(null)
 
 	const router = useRouter()
-	useEffect (() => {
-		checkUserLoggedIn();}, [])
+	useEffect(() => checkUserLoggedIn(), [])
 
 	// Login User
-	const login = async({username, password}) => {
+	const login = async ({ username, password }) => {
 		const config = {
+			
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json'
@@ -28,10 +28,10 @@ export const AuthenticationProvider = ({ children }) => {
 		}
 
 		try {
-			const { data:accessResponse } = await axios.post('http://localhost:3000/api/login', body, config)
+			const { data: accessResponse } = await axios.post('http://localhost:3000/api/login', body, config)
 
-			console.log(accessResponse,"hell")
-			
+			console.log(accessResponse, "hell")
+
 			if (accessResponse && accessResponse.user) {
 				setUser(accessResponse.user)
 			}
@@ -41,20 +41,20 @@ export const AuthenticationProvider = ({ children }) => {
 			}
 
 			router.push('/')
-		} catch(error) {
-		  if (error.response & error.response.data) {
-		  	setError(error.response.data.message)
-		  	return      
-	      } else if (error.request) {
-		    setError('Something went wrong')
-		    return  
-	      } else {
+		} catch (error) {
+			if (error.response & error.response.data) {
+				setError(error.response.data.message)
+				return
+			} else if (error.request) {
+				setError('Something went wrong')
+				return
+			} else {
+				setError('Something went wrong')
+				return
+			}
+			console.error('Error', error.message);
 			setError('Something went wrong')
 			return
-	      }
-	      console.error('Error', error.message);
-	      setError('Something went wrong')
-	      return
 		}
 	}
 	const register = async ({ username, email, password }) => {
@@ -75,58 +75,69 @@ export const AuthenticationProvider = ({ children }) => {
 			// call nextjs api function to create a user
 			await axios.post('http://localhost:3000/api/register', body, config)
 			login({ username, password })
-		} catch(error) {
-		  if (error.response & error.response.data) {
-		  	setError(error.response.data.message)
-		  	return      
-	      } else if (error.request) {
-		    setError('Something went wrong')
-		    return  
-	      } else {
-			setError('Something went wrong')
-			return
-	      }
-	      console.error('Error', error.message);
-	      setError('Something went wrong')
-	      return
-		}
-	}
-	const logout =  async() => {
-		try {
-			await axios .post('http://localhost:3000/api/logout')
-			setUser(null)
-			setAccessToken(null)
-	
-		} catch(error) {
+		} catch (error) {
 			if (error.response & error.response.data) {
 				setError(error.response.data.message)
-				return      
+				return
 			} else if (error.request) {
-			  setError('Something went wrong')
-			  return  
+				setError('Something went wrong')
+				return
 			} else {
-			  setError('Something went wrong')
-			  return
+				setError('Something went wrong')
+				return
+			}
+			console.error('Error', error.message);
+			setError('Something went wrong')
+			return
+		}
+	}
+	const logout = async () => {
+		try {
+			await axios.post('http://localhost:3000/api/logout')
+			setUser(null)
+			setAccessToken(null)
+
+		} catch (error) {
+			if (error.response & error.response.data) {
+				setError(error.response.data.message)
+				return
+			} else if (error.request) {
+				setError('Something went wrong')
+				return
+			} else {
+				setError('Something went wrong')
+				return
 			}
 			console.error('Error', error.message);
 			setError('Something went wrong')
 			return}
 		}
 		const checkUserLoggedIn = async () => {
-			
+			try {
 				 const {data} = await axios.post('http://localhost:3000/api/user')
 				 setUser(data.user)
 				 setAccessToken(data.access)
 
-			
-			
+			}
+			catch(error) {	
+				if (error.response & error.response.data) {
+					setError(error.response.data.message)
+					return
+				} else if (error.request) {
+					setError('Something went wrong')
+					return
+				} else {
+					setError('Something went wrong')
+					return
+				}
+			}
 		}
 
 	return (
-		<AuthenticationContext.Provider value={{ user, accessToken, error, login,register,logout }}>
+		<AuthenticationContext.Provider value={{ user, accessToken, error, login, register, logout }}>
 			{children}
 		</AuthenticationContext.Provider>
 	)
-	}
+}
 
-export default AuthenticationContext ;
+export default AuthenticationContext;
