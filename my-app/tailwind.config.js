@@ -6,10 +6,15 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    borderWidth: {
+      '1': '1px',
+      '2': '2px',
+        },
     extend: {
       spacing: {
         '5px': '5px',
       },
+      
       colors: {
         white: "#fff",
         black: "#000",
