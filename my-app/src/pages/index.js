@@ -41,9 +41,7 @@ const LandingPage = () => {
           </div>
         </div>
 
-        {/* <div className="absolute top-[43.06rem] left-[74.5rem] text-[2.04rem] font-semibold inline-block w-[10.81rem] h-[4.27rem]">
-        ABOUT US
-      </div> */}
+    
 
         <div className="grid grid-cols-1 gap-y-7 place-content-center justify-items-center sm:grid-cols-1 md:grid-cols-3 md:w-[150rem]">
           <div className="mt-5 md:justify-self-end md:col-span-2">

@@ -24,17 +24,17 @@ function Signup() {
         <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-mistyrose">
                
            
-            <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-            <div className="grid grid-cols-1 ">
-                <div>
-                <div className="bg-white rounded-2xl shadow-2xl flex max-w-4xl">
-                    <div className="p-5">
-                        <div className="hidden sm:block">
+            <main className="flex flex-col items-center justify-center w-full flex-1 bg-mistyrose px-20 text-center">
+            <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 gap-1   ">
+                <div className="">
+                <div className="bg-white rounded-tr-2xl  md:w-[32rem] rounded-tl-2xl  shadow-2xl  max-w-4xl">
+                    <div className="p-5 place-self-center">
+                        <div className=" sm:block justify-self-center">
                             <img src="/your-place-to-readremovebgpreview-1@2x.png" width={210} height={65} />
                         </div>
                         <div className="py-10">
-                            <h2 className="text-3xl font-bold text-darksalmon mb-2">Create a new account</h2>
-                            <div className="border-2 border-solid w-10 border-darksalmon inline-block mb-2"></div>
+                            <h2 className=" text-center text-3xl font-bold text-darksalmon mb-2">Create a new account</h2>
+                            <div className="  border-2 border-solid w-10 border-darksalmon inline-block mb-2"></div>
                         </div>
                         <div className="flex flex-col items-center ">
                             <form onSubmit={submitHandler}>
@@ -59,16 +59,16 @@ function Signup() {
                         </div>
 
                     </div>
-                    <div>
-                    <div className="  bg-darksalmon text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
-                        <h2 className="text-3xl font-bold mb-2">Register</h2>
-                        <div className="border-2 border-solid w-10 border-white inline-block mb-2"></div>
-                        <p className="mb-2 mt-2 font-semibold ">Be a part of the change we are trying to bring!</p>
-                        <p className="mt-4 text-[0.9rem]">Already have an account?<span className="hover:scale-10 ease-in duration-300"><a href="/login" className="underline font-semibold ml-2 hover:scale-90 ease-in duration-300">Login</a></span> </p>
+                    </div>
+                    <div className="h-[12rem]  rounded-br-2xl rounded-bl-2xl bg-darksalmon md:place-self-start ">
+                    <div className="h-[0.1rem] w-[18.6rem] md:h-[29rem]  md:pt-[8rem] md:w-[20rem]    md:rounded-br-2xl   md:rounded-tr-2xl md:rounded-bl-[0px] bg-darksalmon text-white text-center rounded-br-2xl rounded-bl-2xl mt-10 ">
+                        <h2 className="  text-2xl font-bold mb-2">Register</h2>               
+                        <p className=" text-center mb-3 mt-2  ">Be a part of the  change <br/> we are trying to bring!</p>
+                        <p className=" text-center mt-4 text-[0.9rem]">Already have an account?<span className="hover:scale-10 ease-in duration-300"><a href="/login" className="underline font-semibold ml-2 hover:scale-90 ease-in duration-300"><br/>Login</a></span> </p>
                     </div>
                     </div>
 
-                </div>
+      
             </div>
             </main>
 
