@@ -25,9 +25,9 @@ function Signup() {
                
            
             <main className="flex flex-col items-center justify-center w-full flex-1 bg-mistyrose px-20 text-center">
-            <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 gap-1   ">
+            <div className="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-1   ">
                 <div className="">
-                <div className="bg-white rounded-tr-2xl  md:w-[33rem]  md:rounded-tr-[0px] rounded-tl-2xl  shadow-2xl  max-w-4xl">
+                <div className="bg-white rounded-tr-2xl  md:w-[32rem] rounded-tl-2xl md:rounded-tl-2xl md:rounded-bl-2xl md:rounded-tr-none shadow-2xl  max-w-4xl">
                     <div className="p-5 place-self-center">
                         <div className=" sm:block justify-self-center">
                             <img src="/your-place-to-readremovebgpreview-1@2x.png" width={210} height={65} />
@@ -60,10 +60,10 @@ function Signup() {
 
                     </div>
                     </div>
-                    <div className="h-[12rem]  rounded-br-2xl rounded-bl-2xl bg-darksalmon md:place-self-start ">
-                    <div className="h-[0.1rem] w-[18.6rem] md:h-[28.75rem]  md:pt-[8rem] md:w-[20rem]      md:rounded-br-2xl      md:rounded-bl-[0px] bg-darksalmon text-white text-center rounded-br-2xl rounded-bl-2xl mt-10 ">
-                        <h2 className="  text-2xl font-bold mb-2">Register</h2>   
-                        <div className="border-2 border-solid w-10 border-white inline-block mb-2"></div>            
+                    <div className="h-[12rem] rounded-br-2xl rounded-bl-2xl md:rounded-tr-2xl bg-darksalmon md:place-self-start ">
+                    <div className="h-[0.1rem] w-[18.6rem] md:h-[29.43rem]  md:pt-[8rem] md:w-[20rem]    md:rounded-br-2xl   md:rounded-tr-2xl md:rounded-bl-[0px] bg-darksalmon text-white text-center rounded-br-2xl rounded-bl-2xl mt-7 ">
+                        <h2 className="  text-2xl font-bold mb-2">Register</h2>  
+                        <div className="border-2 border-solid w-10 border-white inline-block mb-2"></div>             
                         <p className=" text-center mb-3 mt-2  ">Be a part of the  change <br/> we are trying to bring!</p>
                         <p className=" text-center mt-4 text-[0.9rem]">Already have an account?<span className="hover:scale-10 ease-in duration-300"><a href="/login" className="underline font-semibold ml-2 hover:scale-90 ease-in duration-300"><br/>Login</a></span> </p>
                     </div>
