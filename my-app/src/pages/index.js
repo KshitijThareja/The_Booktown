@@ -4,13 +4,14 @@ import Button from "./button";
 import "./button";
 import Image from "next/image";
 import MainNavigation from "./main-navigation";
+import Link from 'next/link';
+
 
 const LandingPage = () => {
   return (
     <div div className="">
       <MainNavigation />
 
-      <div className="flex"></div>
       <div className="mt-5 mx-5 grid grid-cols-1 md:grid-cols-2 md:px-0 sm:justify-items-center place-items-center w-[45rem] md:w-[130rem]">
         <div className="justify-self-center sm:justify-self-center md:place-self-start ">
           <img
@@ -32,12 +33,14 @@ const LandingPage = () => {
             </p>
           </div>
           <div className="sm:mt-20 md:mt-4 justify-self-center place-self-center md:place-self-start ">
+          <Link href="/donate" passHref >
             <button className=" px-7 py-3 bg-black text-white font-semibold border border-black rounded cursor-pointer hover:bg-white hover:text-black hover:border-black mr-4">
               Donate Now
-            </button>
+            </button></Link>
+            <Link href="/About" passHref >
             <button className=" px-7 py-3  bg-darksalmon shadow-[0px_4px_4px_rgba(0,_0,_0,_0.1)] border border-darksalmon  text-white gap-[0.19rem] font-semibold md:mt-4 rounded-md cursor-pointer hover:bg-white hover:text-darksalmon ">
               Read More
-            </button>
+            </button></Link>
           </div>
         </div>
 
@@ -58,7 +61,7 @@ const LandingPage = () => {
               <h2 className="text-[2.04rem] justify-self-center text-center font-semibold mb-4 md:text-start">
                 ABOUT US
               </h2>
-              <p className="font-light text-[1.38rem] leading-[2rem] text-center md:text-start text-gray-800">
+              <p className="font-light text-[1.38rem] leading-[2rem] text-center md:text-start text-gray-700">
                 A dedicated team of volunteers who want to do their bit of good
                 towards the society. It all started when we wanted to donate our
                 old books. We wanted them to be of good use to someone, someone
@@ -77,7 +80,7 @@ const LandingPage = () => {
                 Our motto: Har haath kitaab
               </p>
               <br />
-              <div className="text-[1.38rem] md:text-start">
+              <div className="text-[1.38rem] md:text-start text-gray-700">
                 <ul className="space-y-4">
                   <li>To be accessible to every individual who needs books.</li>
                   <li>
@@ -115,7 +118,7 @@ const LandingPage = () => {
                 <p className="[margin-block-start:0] [margin-block-end:14px] font-medium">
                   Collection
                 </p>
-                <p className="m-0 text-[1.8rem] md:text-[1.3rem] font-light text-gray-900">
+                <p className="m-0 text-[1.8rem] md:text-[1.3rem] font-light text-gray-700">
                   We collect used/new books from individuals, schools,
                   corporates, etc who are willing to support the cause.
                 </p>
@@ -133,7 +136,7 @@ const LandingPage = () => {
                 <p className="[margin-block-start:0] [margin-block-end:14px] font-medium">
                   Distribution
                 </p>
-                <p className="m-0 text-[1.8rem] md:text-[1.3rem] font-light text-gray-900">
+                <p className="m-0 text-[1.8rem] md:text-[1.3rem] font-light text-gray-700">
                   We distribute books via book stalls at govt. schools. We also
                   provide books to credible NGOs in education domain.
                 </p>
@@ -151,7 +154,7 @@ const LandingPage = () => {
                 <p className="[margin-block-start:0] [margin-block-end:14px] font-medium">
                   Sorting
                 </p>
-                <p className="m-0 text-[1.8rem] md:text-[1.3rem] font-light text-gray-900">
+                <p className="m-0 text-[1.8rem] md:text-[1.3rem] font-light text-gray-700">
                   Recycling those that are worn out/ torn/ not in good shape.
                 </p>
               </div>

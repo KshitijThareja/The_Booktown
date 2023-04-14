@@ -1,5 +1,5 @@
 import MainNavigation from "./main-navigation";
-const AboutPage = () => {
+const Contact = () => {
   return (
     <div className="">
       <MainNavigation />
@@ -47,4 +47,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default Contact;

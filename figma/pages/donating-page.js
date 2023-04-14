@@ -44,7 +44,7 @@ const DonatingPage = () => {
         <div className="absolute top-[18.81rem] left-[-9rem] w-[26rem] h-[4rem]">
           <div className="absolute top-[3.06rem] left-[0rem] w-[26rem] h-[4rem]" />
           <div className="absolute top-[4.38rem] left-[-1.12rem] leading-[1.25rem] flex items-center w-[5.38rem] h-[1.13rem]">
-            PIN
+            PINoverflow-hidden
           </div>
         </div>
         <div className="absolute top-[37.69rem] left-[0rem] w-[26rem] h-[4rem]" />
