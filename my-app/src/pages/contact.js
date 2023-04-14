@@ -1,4 +1,5 @@
 import MainNavigation from "./main-navigation";
+import Footer from "./footer";
 import dynamic from "next/dynamic";
 const Map = dynamic(() => import('./map'), {
     ssr: false,
@@ -7,6 +8,7 @@ const Contact = () => {
   return (
     <div className="">
       <MainNavigation />
+     
 
       <div className="flex">
         <div
@@ -60,11 +62,13 @@ const Contact = () => {
             </p>
           </div>
         </div>
-        <div>
-          <Map />
-        </div>
+       
       </div>
+      <div>
+          <Footer/>
+        </div>
     </div>
+    
   );
 };
 
