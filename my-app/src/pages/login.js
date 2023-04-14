@@ -23,7 +23,7 @@ function Login() {
                 < div className="grid grid-cols-1 justify-items-center md:grid-cols-2 gap-1   ">
                 <div className="">
                     <div className="bg-white rounded-tr-2xl  md:h-[31.25rem]  md:w-[32rem] rounded-tl-2xl md:rounded-tl-2xl md:rounded-bl-2xl md:rounded-tr-none shadow-2xl  max-w-4xl">
-                        <div className=" p-5 place-self-center">
+                        <div className=" p-5 md:pt-[3rem] place-self-center">
                             <div className=" sm:block justify-self-center">
                                 <img src="/your-place-to-readremovebgpreview-1@2x.png" width={210} height={65} />
                             </div>
@@ -54,9 +54,9 @@ function Login() {
                     </div>
 
                 </div>
-                <div className="h-[12rem] rounded-br-2xl rounded-bl-2xl md:rounded-tr-2xl bg-darksalmon md:place-self-start ">
+                <div className="h-[12rem] rounded-br-2xl rounded-bl-2xl md:rounded-tr-2xl bg-darksalmon md:place-self-start  md:justify-items-center">
 
-                    <div className="h-[0.1rem] w-[18.6rem] md:h-[29.45rem]  md:pt-[8rem] md:w-[20rem]    md:rounded-br-2xl   md:rounded-tr-2xl md:rounded-bl-[0px] bg-darksalmon text-white text-center rounded-br-2xl rounded-bl-2xl mt-7 ">
+                    <div className="h-[0.1rem] w-[18.6rem] md:h-[29.45rem]  md:pt-[10rem] md:w-[20rem]    md:rounded-br-2xl   md:rounded-tr-2xl md:rounded-bl-[0px] bg-darksalmon text-white text-center rounded-br-2xl rounded-bl-2xl mt-7 ">
                         <h2 className="text-2xl font-bold mb-2">Welcome back!</h2>
                         <div className="border-2 border-solid w-10 border-white inline-block mb-2"></div>
                         <p className="text-center mb-3 mt-2 ">Please fill up your details to login</p>
