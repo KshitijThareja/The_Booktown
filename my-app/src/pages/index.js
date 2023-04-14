@@ -5,11 +5,13 @@ import "./button";
 import Image from "next/image";
 import MainNavigation from "./main-navigation";
 import Link from 'next/link';
+import Footer from "./footer";
+
 
 
 const LandingPage = () => {
   return (
-    <div div className="">
+    <div  className="">
       <MainNavigation />
 
       <div className="mt-5 mx-5 grid grid-cols-1 md:grid-cols-2 md:px-0 sm:justify-items-center place-items-center w-[45rem] md:w-[130rem]">
@@ -159,6 +161,9 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
+              <div className="">
+            <Footer/>
+            </div>
       </div>
     </div>
   );

@@ -1,4 +1,6 @@
+import Footer from "./footer";
 import MainNavigation from "./main-navigation";
+
 const AboutPage = () => {
   return (
     <div className="">
@@ -42,6 +44,10 @@ const AboutPage = () => {
             to worry for these knowledgeable assets.
           </p>
         </div>
+        <div className="">
+           <Footer/>
+        </div>
+
       </div>
     </div>
   );
