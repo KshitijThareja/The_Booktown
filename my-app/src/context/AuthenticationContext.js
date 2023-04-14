@@ -10,8 +10,7 @@ export const AuthenticationProvider = ({ children }) => {
 	const [error, setError] = useState(null)
 
 	const router = useRouter()
-	useEffect(() => {checkUserLoggedIn();}
-	, []);
+	useEffect(() => {checkUserLoggedIn();}, [])
 
 	// Login User
 	const login = async ({ username, password }) => {
@@ -111,29 +110,28 @@ export const AuthenticationProvider = ({ children }) => {
 			}
 			console.error('Error', error.message);
 			setError('Something went wrong')
-			return
+			return}
 		}
-	}
-	const checkUserLoggedIn = async () => {
-		try {
-			const { data } = await axios.post('http://localhost:3000/api/user')
-			setUser(data.user)
-			setAccessToken(data.access)
+		const checkUserLoggedIn = async () => {
+			try {
+				 const {data} = await axios.post('http://localhost:3000/api/user')
+				 setUser(data.user)
+				 setAccessToken(data.access)
 
-		}
-		catch (error) {
-			if (error.response & error.response.data) {
-				setError(error.response.data.message)
-				return
-			} else if (error.request) {
-				setError('Something went wrong')
-				return
-			} else {
-				setError('Something went wrong')
-				return
+			}
+			catch(error) {	
+				if (error.response & error.response.data) {
+					setError(error.response.data.message)
+					return
+				} else if (error.request) {
+					setError('Something went wrong')
+					return
+				} else {
+					setError('Something went wrong')
+					return
+				}
 			}
 		}
-	}
 
 	return (
 		<AuthenticationContext.Provider value={{ user, accessToken, error, login, register, logout }}>
