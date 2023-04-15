@@ -6,6 +6,8 @@ from rest_framework import permissions
 from api.serializers import UserSerializer, GroupSerializer, RegisterUserSerializer
 from rest_framework import viewsets
 from rest_framework.generics import RetrieveAPIView, CreateAPIView
+
+from .models import Book
 class UserViewSet(viewsets.ModelViewSet):
 	queryset = User.objects.all().order_by('-date_joined')
 	serializer_class = UserSerializer
@@ -25,4 +27,16 @@ class UserAPIView(RetrieveAPIView):
 class RegisterUserAPIView(CreateAPIView):
 	permission_classes=[permissions.AllowAny]
 	serializer_class=RegisterUserSerializer 
+def create_book(request):
+    if request.method == 'POST':
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        phone_no = request.POST.get('phone_no')
+        address = request.POST.get('address')
+        city = request.POST.get('city')
+        pin_code = request.POST.get('pin_code')
+        no_of_books = request.POST.get('no_of_books')
+        book = Book(full_name=full_name, email=email, phone_no=phone_no, address=address, city=city, pin_code=pin_code, no_of_books=no_of_books)
+        book.save()
+        return JsonResponse({'success': 'Book created successfully!'})
 	

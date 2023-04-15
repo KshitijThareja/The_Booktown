@@ -11,8 +11,8 @@ function MainNavigation(){
     }
      
     return (
-        <header className="border-b border-gray-200 bg-white py-2 block">
-            <div className="flex items-center justify-between xl:max-w-8xl  max-w-full px-[8%] flex-wrap w-full">
+        <header className="border-b border-gray-200 bg-white py-2 block sm:flex md:flex  ">
+            <div className="flex items-center justify-between xl:max-w-8xl  max-w-full px-[8%] flex-wrap w-full bg-white fixed">
                 <img src="/your-place-to-readremovebgpreview-1@2x.png" width={210} height={65} />
                 
             

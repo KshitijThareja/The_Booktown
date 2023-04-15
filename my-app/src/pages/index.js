@@ -13,8 +13,8 @@ const LandingPage = () => {
       <MainNavigation />
 
 
-      <div className="mt-5 mx-5 grid grid-cols-1 md:grid-cols-2 md:px-0 sm:justify-items-center place-items-center w-[45rem] md:w-[130rem]">
-        <div className="justify-self-center sm:justify-self-center md:place-self-start ">
+      <div className="mt-5 mx-5 grid grid-cols-1 md:grid-cols-2 md:px-0 sm:justify-items-center place-items-center w-[45rem] md:w-[130rem] ">
+        <div className="justify-self-center sm:justify-self-center md:place-self-start md:w-full ">
           <img
             className=" rounded-tl-65xl rounded-tr-65xl rounded-br-65xl rounded-bl-65xl w-[49.4rem] h-[32.25rem] md:w-[56rem] md:h-[35rem]"
             alt=""
@@ -162,7 +162,9 @@ const LandingPage = () => {
         </div>
               
       </div>
+      <div className="container ">
       <Footer/>
+      </div>
     </div>
   );
 };

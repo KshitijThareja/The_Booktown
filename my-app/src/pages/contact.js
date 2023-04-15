@@ -6,11 +6,12 @@ const Map = dynamic(() => import('./map'), {
   })
 const Contact = () => {
   return (
+    <>
     <div className="">
       <MainNavigation />
-     
+</div>
 
-      <div className="flex">
+      <div className="flex h-1/2">
         <div
           style={{
             backgroundColor: "white",
@@ -27,8 +28,7 @@ const Contact = () => {
             <img
               className="rounded-2xl w-[4.25rem] align-self-center h-[6rem]"
               alt=""
-              src="/frame10.svg"
-            />
+              src="/frame10.svg" />
           </div>
           <div className="w-[8rem] text-center place-self-center">
             <p>+91 R-Z-G 554, Raj Nagar - II,Palam Colony, New Delhi 10077</p>
@@ -39,8 +39,7 @@ const Contact = () => {
             <img
               className="rounded-2xl w-[4.25rem] align-self-center h-[6rem]"
               alt=""
-              src="/frame11.svg"
-            />
+              src="/frame11.svg" />
           </div>
           <div className="w-[8rem] text-center place-self-center">
             <p>+91 95464XXXXX</p>
@@ -51,8 +50,7 @@ const Contact = () => {
             <img
               className="rounded-2xl w-[4.25rem] align-self-center h-[6rem]"
               alt=""
-              src="/frame12.svg"
-            />
+              src="/frame12.svg" />
           </div>
           <div className="w-[8.5rem] text-center place-self-center">
             <p>
@@ -62,12 +60,11 @@ const Contact = () => {
             </p>
           </div>
         </div>
-       
+
       </div>
-      <div>
-          <Footer/>
-        </div>
-    </div>
+      
+      <Footer className='h-1/2'/>
+  </>
     
   );
 };

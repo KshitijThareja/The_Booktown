@@ -3,6 +3,7 @@ import AuthenticationContext from '../context/AuthenticationContext'
 import { useState, useContext } from "react";
 import { FaFacebookF, FaEnvelope, FaRegEnvelope } from 'react-icons/fa';
 import axios from "axios";
+
 import { useRouter } from "next/router";
 function Signup() {
     const [username, setUsername] = useState('')
@@ -72,6 +73,7 @@ function Signup() {
 
                 </div>
             </main>
+     
 
         </div>
 
