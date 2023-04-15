@@ -6,10 +6,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    borderWidth: {
-      '1': '1px',
-      '2': '2px',
-        },
+  
     extend: {
       spacing: {
         '5px': '5px',
@@ -41,7 +38,7 @@ module.exports = {
       borderRadius: { xl: "20px", "65xl": "84px" },
     },
     fontSize: {
-
+      
       "14xl": "2.06rem",
       "3xl": "1.38rem",
       "2xl": "1.20rem",

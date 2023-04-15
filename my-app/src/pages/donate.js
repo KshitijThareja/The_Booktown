@@ -3,7 +3,19 @@ const DonatePage = () => {
   return (
     <div className="">
       <MainNavigation />
-
+      <div className="flex">
+        <div
+          style={{
+            backgroundColor: "white",
+            height: "10vh",
+            width: "210vh",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
+        </div>
+      </div>
+      
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:w-[100rem] md:place-items-center">
           <div className="sm:place-self-center">
             <img
