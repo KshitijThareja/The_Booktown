@@ -69,16 +69,10 @@ function MainNavigation(){
                             <Link className="lg:px-5 py-2 block hover:text-darksalmon font-semibold hover:scale-110 ease-in duration-300 mr-4" href="#">Contact</Link>
                             </li>
                             )} */}
-
-
-                        
-                    </ul>
-                </nav>
-            </div>
-            
-            
-        </header>
-    );
-    
+          </ul>
+        </nav>
+      </div>
+    </header>
+  );
 }
 export default MainNavigation;

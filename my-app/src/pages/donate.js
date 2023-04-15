@@ -117,7 +117,6 @@ function DonatePage({ data }) {
                   placeholder="Enter full name"
                   required
                 />
-
               </div>
 
               <div className="w-[20rem] md:w-[30rem]">
@@ -150,7 +149,6 @@ function DonatePage({ data }) {
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                   placeholder="Email address"
                   required
-                  onChange={e => setEmail(e.target.value)} value={email}
                 />
               </div>
               <div className="w-[20rem] md:w-[30rem]">
@@ -244,11 +242,36 @@ function DonatePage({ data }) {
                 </button>
               </div>
             </div>
-          </form >
-        </div>
+          </form>
+         : (
+          <div className="grid grid-cols-1 h-[20rem] object-center place-items-center">
+            <div className="text-center justify-self-center sm:justify-self-center md:text-center md:ml-3">
+              <h2 className="text-black text-[1.5rem] sm:text-[2rem]">
+                Donate a book to Bookown Foundation
+              </h2>
+            </div>
+            <div className="w-[29.56rem] text-center h-[2rem] justify-self-center sm:justify-self-center md:text-center md:ml-3">
+              <h3 className="text-darksalmon text-[1.4rem]">
+                #NewChapterForOldBooks.
+              </h3>
+            </div>
+            <div className="text-[1.3rem] text-black font-quicksand">
+              Please login to fill the donation form
+            </div>
+            <div className="justify-self-center">
+              <Link href="/login" passHref>
+                <button className="px-6 py-2 block bg-darksalmon text-white font-semibold border border-darksalmon cursor-pointer hover:bg-white hover:text-darksalmon rounded-lg shadow hover:scale-110 ease-in duration-300">
+                  Login
+                </button>
+              </Link>
+            </div>
+          </div>
+      
       </div>
     );
-  };
-}
+          
+    
+  
+
 
 export default DonatePage;
