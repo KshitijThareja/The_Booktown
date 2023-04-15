@@ -1,26 +1,10 @@
 import MainNavigation from "./main-navigation";
 import Footer from "./footer";
-import dynamic from "next/dynamic";
-const Map = dynamic(() => import('./map'), {
-    ssr: false,
-  })
+import Map from "../components";
 const Contact = () => {
   return (
     <div className="">
       <MainNavigation />
-     
-
-      <div className="flex">
-        <div
-          style={{
-            backgroundColor: "white",
-            height: "10vh",
-            width: "210vh",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        ></div>
-      </div>
       <div className="grid grid-cols-1 justify-items-center sm:grid-cols-3 md:grid-cols-3 md:gap-0">
         <div className="grid grid-cols-2 justify-items-center sm:grid-cols-1">
           <div className="w-[3rem] place-self-center">
@@ -62,11 +46,11 @@ const Contact = () => {
             </p>
           </div>
         </div>
-       
-      </div>
-      <div>
-          <Footer/>
-        </div>
+       <div className="bg-white w-full flex h-[24.45rem]"/>
+        <Map/>
+     
+      </div>  
+        <Footer/>
     </div>
     
   );

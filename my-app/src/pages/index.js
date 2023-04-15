@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Head from "next/head";
 import Button from "./button";
 import "./button";
-import Image from "next/image";
 import MainNavigation from "./main-navigation";
 import Link from 'next/link';
 import Footer from "./footer";
@@ -16,7 +13,7 @@ const LandingPage = () => {
       <div className="mt-5 mx-5 grid grid-cols-1 md:grid-cols-2 md:px-0 sm:justify-items-center place-items-center w-[45rem] md:w-[130rem]">
         <div className="justify-self-center sm:justify-self-center md:place-self-start ">
           <img
-            className=" rounded-tl-65xl rounded-tr-65xl rounded-br-65xl rounded-bl-65xl w-[49.4rem] h-[32.25rem] md:w-[56rem] md:h-[35rem]"
+            className=" rounded-tl-65xl rounded-tr-65xl rounded-br-65xl rounded-bl-65xl w-[49.4rem] h-[32.25rem] md:w-[55rem] md:h-[35rem]"
             alt=""
             src="/b8163268619025e9e0b33c10b504850b-1@2x.png"
           />
@@ -107,13 +104,13 @@ const LandingPage = () => {
         </div>
         <div className="grid grid-cols-1 gap-y-7 mt-10 sm:grid-cols-1 md:grid-cols-3 md:w-[120rem]">
           <div className="w-[27.76rem] h-[46rem] text-center font-bold text-[2.7rem] md:text-[2rem]">
-            <div className="rounded-xl bg-white shadow-[0px_4px_20px_2px_rgba(0,_0,_0,_0.25)] mt-6 w-[33.88rem] h-[44.63rem] md:w-[26.88rem] md:h-[33.66rem]">
+            <div className="rounded-xl bg-white shadow-[0px_4px_20px_2px_rgba(0,_0,_0,_0.25)] mt-6 w-[30.88rem] h-[41.63rem] md:w-[26.88rem] md:h-[33.66rem]">
               <img
-                className="rounded-t-xl rounded-b-none w-[34rem] h-[32.5rem] md:w-[27rem] md:h-[24.5rem] object-fit"
+                className="rounded-t-xl rounded-b-none w-[31rem] h-[29.5rem] md:w-[27rem] md:h-[24.5rem] object-fit"
                 alt=""
                 src="/image-1@2x.png"
               />
-              <div className="inline-block w-[33.13rem] h-[14.69rem] md:w-[26rem] md:h-[11.69rem]">
+              <div className="inline-block w-[30.13rem] h-[11.69rem] md:w-[26rem] md:h-[11.69rem]">
                 <p className="[margin-block-start:0] [margin-block-end:14px] font-medium">
                   Collection
                 </p>
@@ -125,13 +122,13 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="w-[27.76rem] h-[46rem] text-center font-bold text-[2.7rem] md:text-[2rem]">
-            <div className="rounded-xl bg-white shadow-[0px_4px_20px_2px_rgba(0,_0,_0,_0.25)] mt-6 w-[33.88rem] h-[44.63rem] md:w-[26.88rem] md:h-[33.66rem]">
+            <div className="rounded-xl bg-white shadow-[0px_4px_20px_2px_rgba(0,_0,_0,_0.25)] mt-6 w-[30.88rem] h-[42.4rem] md:w-[26.88rem] md:h-[33.66rem]">
               <img
-                className="rounded-t-xl rounded-b-none w-[34rem] h-[32.5rem] md:w-[27rem] md:h-[24.5rem] object-fit"
+                className="rounded-t-xl rounded-b-none w-[31rem] h-[29.5rem] md:w-[27rem] md:h-[24.5rem] object-fit"
                 alt=""
                 src="/image-3@2x.png"
               />
-              <div className="inline-block w-[33.13rem] h-[14.69rem] md:w-[26rem] md:h-[11.69rem]">
+              <div className="inline-block w-[30.13rem] h-[11.69rem] md:w-[26rem] md:h-[11.69rem]">
                 <p className="[margin-block-start:0] [margin-block-end:14px] font-medium">
                   Distribution
                 </p>
@@ -143,13 +140,13 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="w-[27.76rem] h-[46rem] text-center font-bold text-[2.7rem] md:text-[2rem]">
-            <div className="rounded-xl bg-white shadow-[0px_4px_20px_2px_rgba(0,_0,_0,_0.25)] mt-6 w-[33.88rem] h-[44.63rem] md:w-[26.88rem] md:h-[33.66rem]">
+            <div className="rounded-xl bg-white shadow-[0px_4px_20px_2px_rgba(0,_0,_0,_0.25)] mt-6 w-[30.88rem] h-[41.63rem] md:w-[26.88rem] md:h-[33.66rem]">
               <img
-                className="rounded-t-xl rounded-b-none w-[32.5rem] h-[30.5rem] mt-3 md:w-[25.5rem] md:h-[24.5rem] object-fit"
+                className="rounded-t-xl rounded-b-none w-[29.5rem] h-[27.5rem] mt-3 md:w-[25.5rem] md:h-[24.5rem] object-fit"
                 alt=""
                 src="/image-2@2x.png"
               />
-              <div className="inline-block w-[33.13rem] mt-4 h-[14.69rem] md:w-[26rem] md:h-[11.69rem]">
+              <div className="inline-block w-[30.13rem] mt-4 h-[1.69rem] md:w-[26rem] md:h-[11.69rem]">
                 <p className="[margin-block-start:0] [margin-block-end:14px] font-medium">
                   Sorting
                 </p>
