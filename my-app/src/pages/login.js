@@ -39,7 +39,7 @@ function Login() {
 
                                     </div>
                                     <div className="bg-gray-50 w-64 p-2 flex items-center">
-                                        <input type="text" id="password" className="bg-gray-50 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon block w-full p-2.5 flex-1" placeholder="Password" onChange={e => setPassword(e.target.value)} value={password} required />
+                                        <input type="password" id="password" className="bg-gray-50 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon block w-full p-2.5 flex-1" placeholder="Password" onChange={e => setPassword(e.target.value)} value={password} required />
 
                                     </div>
                                     <div className="flex w-64 mb-5 mt-7">

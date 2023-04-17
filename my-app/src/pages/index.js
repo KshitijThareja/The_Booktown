@@ -4,6 +4,7 @@ import MainNavigation from "./main-navigation";
 import Link from "next/link";
 import Footer from "./footer";
 
+
 const LandingPage = () => {
   return (
     <div className="">
