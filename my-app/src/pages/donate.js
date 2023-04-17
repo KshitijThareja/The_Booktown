@@ -3,49 +3,39 @@ import { useState, useContext } from "react";
 import Link from "next/link";
 import AuthenticationContext from "@/context/AuthenticationContext";
 import Footer from "./footer";
+import axios from "axios";
 
-function DonatePage({ data }) {
+const DonatePage=()=> {
   const [email, setEmail] = useState(" ");
-  const [name, setName] = useState(" ");
-  const [phone, setPhone] = useState(" ");
+  const [full_name, setFull_name] = useState(" ");
+  const [phone_no, setPhone_no] = useState(" ");
   const [city, setCity] = useState(" ");
-  const [n_books, setN_books] = useState(" ");
+  const [no_of_books, setNo_of_books] = useState(" ");
   const [address, setAddress] = useState(" ");
-  const [pincode, setPincode] = useState(" ");
-  const [submit, setSubmit] = useState(false);
+  const [pin_code, setPin_code] = useState(" ");
+//   const [submit, setSubmit] = useState(false);
   const { user } = useContext(AuthenticationContext);
+  const DonationInfo= async()=>{
+    let formField= new FormData()
+    formField.append("email",email)
+    formField.append("full_name",full_name)
+    formField.append("phone_no",phone_no)
+    formField.append("city",city)
+    formField.append("address",address)
+    formField.append("pin_code",pin_code)
+    formField.append("no_of_books",no_of_books)
+ 
+    await axios({
+      method: "post",
+      url: "http://localhost:8000/api/book",
+      data: formField,
+    }).then(response=>{
+      console.log(response.data);
+    })
 
-  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  }
+  
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    console.log({ email, name, phone, city, n_books, address, pincode });
-    await delay(1500);
-    console.log("Submitted");
-    setSubmit(true);
-    console.log(data);
-  };
-
-  // const { user, logout } = useContext(AuthenticationContext);
-
-  const options = {
-    method: "POST",
-
-    body: JSON.stringify({
-      email,
-      name,
-      phone,
-      city,
-      n_books,
-      address,
-      pincode,
-    }),
-  };
-  // fetch("http://localhost:8000/api/book", options)
-  //   .then((res) => res.json())
-  //   .then((data) => console.log(data))
-  //   .catch((err) => console.log(err));
 
   return (
     <div className="">
@@ -72,14 +62,8 @@ function DonatePage({ data }) {
         </div>
         {user ? (
           <div>
-            {submit ? (
-              <div className="text-center h-[3rem] md:mb-10 justify-self-center sm:justify-self-center md:text-center md:ml-3 ">
-                <h2 className="text-black text-[1.5rem] md:text-[2rem]">
-                  Thank you for donating a book to Booktown Foundation
-                </h2>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit}>
+            
+              <form>
                 <div className="grid grid-cols-1 gap-6 mt-4 sm:place-items-center justify-items-center py-6 md:justify-self-end md:mt-20 md:ml-20">
                   <div className="text-center h-[3rem] md:mb-10 justify-self-center sm:justify-self-center md:text-center md:ml-3 ">
                     <h2 className="text-black text-[1.5rem] md:text-[2rem]">
@@ -103,14 +87,14 @@ function DonatePage({ data }) {
                       id="first_name"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                       placeholder="Enter full name "
-                      onChange={(e) => setName(e.target.value)}
-                      value={name}
+                      onChange={(e) => setFull_name(e.target.value)}
+                      value={full_name}
                     />
                   </div>
 
                   <div className="w-[20rem] md:w-[20rem]">
                     <label
-                      for="phone"
+                      htmlFor="phone"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Phone number
@@ -121,8 +105,8 @@ function DonatePage({ data }) {
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                       placeholder="Enter your phone number XXX-XXX-XXXX"
                       required
-                      onChange={(e) => setPhone(e.target.value)}
-                      value={phone}
+                      onChange={(e) => setPhone_no(e.target.value)}
+                      value={phone_no}
                     />
                   </div>
 
@@ -190,13 +174,13 @@ function DonatePage({ data }) {
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                       placeholder="Area pincode"
                       required
-                      onChange={(e) => setPincode(e.target.value)}
-                      value={pincode}
+                      onChange={(e) => setPin_code(e.target.value)}
+                      value={pin_code}
                     />
                   </div>
                   <div className="w-[20rem] md:w-[20rem]">
                     <label
-                      for="n_books"
+                      htmlFor="n_books"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Number of books to donate
@@ -207,8 +191,8 @@ function DonatePage({ data }) {
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                       placeholder="Number of books"
                       required
-                      onChange={(e) => setN_books(e.target.value)}
-                      value={n_books}
+                      onChange={(e) => setNo_of_books(e.target.value)}
+                      value={no_of_books}
                     />
                   </div>
                   <div className=" items-center h-5">
@@ -237,13 +221,14 @@ function DonatePage({ data }) {
                     <button
                       type="submit"
                       className="text-white bg-darksalmon hover:bg-white hover:text-darksalmon border-darksalmon font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                      onClick={DonationInfo}
                     >
                       Submit
                     </button>
                   </div>
                 </div>
               </form>
-            )}
+            
           </div>
         ) : (
           <div>
@@ -275,6 +260,7 @@ function DonatePage({ data }) {
         
       </div>
       <Footer />
+      
     </div>
   );
 }

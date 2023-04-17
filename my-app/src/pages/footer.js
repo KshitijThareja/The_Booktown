@@ -1,7 +1,9 @@
+import WhatsAppIcon from "../components/whatsapp";
+import Link from "next/link";
 const Footer = () => {
     return (
     <footer className="p-6 bg-black text-white  ">
-	<div className="container grid grid-cols-2 mx-auto gap-x-3 gap-y-8 sm:grid-cols-3 md:grid-cols-3 ">
+	<div className="container grid grid-cols-2 mx-auto gap-x-3 gap-y-8 sm:grid-cols-3 md:grid-cols-4 ">
 		<div className="flex flex-col space-y-5 mx-auto ">
 			<h2 className="font-medium">About Us</h2>
 			<div className="flex flex-col space-y-4 text-sm text-white-400">
@@ -16,11 +18,11 @@ const Footer = () => {
 		<div className="flex flex-col space-y-4 mx-auto">
 			<h2 className="font-medium">Quick Links</h2>
 			<div className="flex flex-col space-y-4 text-sm text-white-400">
-				<a  href="#">About</a>
+				<Link  href="/About" passHref>About</Link>
                 <div className="border-2 border-solid w-38 border-gray-700 inline-block mb-2"></div>
-				<a  href="#">Blog</a>
+				<Link href="/contact" passHref>Contact</Link>
                 <div className="border-2 border-solid w-38 border-gray-700 inline-block mb-2"></div>
-				<a  href="#">Donation</a>
+				<Link  href="/donate" passHref>Donation</Link>
                 <div className="border-2 border-solid w-38 border-gray-700 inline-block mb-2"></div>
 				
 			</div>
@@ -28,21 +30,26 @@ const Footer = () => {
 		<div className="flex flex-col space-y-5 mx-auto">
 			<h2 className="font-medium">Contact info</h2>
 			<div className="flex flex-col space-y-4 text-sm text-white-400">
-				<div >   R-Z-G 554, Raj Nagar - II,</div>
+				<div >   PRAGATI MAIDAN (SUB OFFICE),</div>
           
-				<div >Palam Colony, New Delhi 10077</div>
+				<div > CENTRAL DELHI, India (IN), Pin Code:- 110001</div>
 
 				<div >91+ 9868XXXXX</div>
                 <div > info@booktownfoundation.org</div>
 				
 			</div>
 		</div>
+		<div className="justify-self-end self-end bg-black">
+			<WhatsAppIcon/>
+		</div>
 	
 	</div>
 	<div className="flex items-center justify-center px-6 pt-12 text-sm  ">
         <div className="flex flex-col space-y-2 text-sm text-white-400">
-        {/* <div className=" border md:w-[145.31rem] h-[1.19rem] border-t-[0px] border-solid border-gray-700"></div> */}
-		<div className="text-white-400 text-center ">© Copyright 1986. All Rights Reserved.</div>
+		
+		<div className="text-white-400 text-center ">© Copyright 2023. All Rights Reserved
+		<span className="text-darksalmon ">KT-KS</span>
+		</div>
         </div>
 	</div>
 </footer>
