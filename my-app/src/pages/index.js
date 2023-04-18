@@ -3,7 +3,7 @@ import "./button";
 import MainNavigation from "./main-navigation";
 import Link from "next/link";
 import Footer from "./footer";
-
+import { motion } from "framer-motion";
 
 const LandingPage = () => {
   return (
@@ -13,13 +13,13 @@ const LandingPage = () => {
       <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
         <div className="justify-self-center sm:justify-self-end md:justify-self-end lg:col-span-2">
           <img
-            className="w-[22.4rem] h-[16.25rem] sm:w-[21.4rem] sm:h-[15.25rem]  md:w-[30rem] md:h-[20rem] lg:w-[47em] lg:h-[32rem]"
+            className="w-[22.4rem] h-[16.25rem] sm:w-[21.4rem] sm:h-[15.25rem]  md:w-[30rem] md:h-[20rem] lg:w-[50rem] lg:h-[33rem]"
             alt=""
             src="/b8163268619025e9e0b33c10b504850b-1@2x.png"
           />
         </div>
 
-        <div className="grid grid-cols-1 justify-self-center md:gap-x-6 md:content-start md:mt-12 sm:order-first md:justify-self-start md:ml-10">
+        <div className="grid grid-cols-1 justify-self-center md:gap-x-6 md:content-start md:mt-12 sm:order-first md:justify-self-start md:ml-10 lg:ml-16 ">
           <div className="justify-self-center place-content-center md:place-self-start ">
             <p className="[border:none] bg-[transparent] block font-montserrat text-[1.8rem] sm:ml-2 sm:text-[1.6rem] mt-5 text-center sm:text-start lg:text-[2rem]">
               A world of books at
@@ -46,9 +46,9 @@ const LandingPage = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 gap-y-4 place-content-center justify-items-center lg:grid-cols-2">
-        <div className="mt-8 sm:justify-self-center lg:justify-self-start ">
+        <div className="mt-8 lg:ml-9 sm:justify-self-center lg:justify-self-start ">
           <img
-            className="w-[21.25rem] h-[16.25rem] justify-self-center sm:w-[26.25rem] sm:h-[20.25rem] md:w-[44.25rem] md:h-[31.25rem]"
+            className="w-[21.25rem] h-[16.25rem] justify-self-center sm:w-[26.25rem] sm:h-[20.25rem] md:w-[41.25rem] md:h-[30.25rem]"
             alt=""
             src="/aa23d4bca20b4f568e95eb777e5529ad-1@2x.png"
           />
@@ -96,12 +96,12 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-            
+
       <div className="grid grid-cols-1 mt-14 place-items-center sm:grid-cols-1 mb-5">
         <div className="text-[1.8rem] text-center md:text-[3.2rem] justify-self-center font-semibold text-darksalmon inline-block">
           OUR OPERATIONAL MODEL
         </div>
-        <div className="grid grid-cols-1 gap-y-7 md:gap-x-10 mt-10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-y-7 md:gap-x-16 mt-10 md:grid-cols-2 lg:grid-cols-3">
           <div className="text-center font-bold text-[1.7rem] md:text-[2rem]">
             <div className="rounded-xl bg-white shadow-[0px_4px_20px_2px_rgba(0,_0,_0,_0.25)] mt-6 w-[20.88rem] h-[26.63rem] md:w-[26.88rem] md:h-[33.66rem]">
               <img
@@ -132,7 +132,7 @@ const LandingPage = () => {
                   Sorting
                 </p>
                 <p className="m-0 text-[1rem] md:text-[1.3rem] font-light text-gray-700">
-                Recycling those that are worn out/torn/not in good shape.
+                  Recycling those that are worn out/torn/not in good shape.
                 </p>
               </div>
             </div>
@@ -145,6 +145,7 @@ const LandingPage = () => {
                 src="/image-3@2x.png"
               />
               <div className="inline-block">
+                
                 <p className="[margin-block-start:0] [margin-block-end:14px] font-medium">
                   Distribution
                 </p>
@@ -157,7 +158,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

@@ -42,7 +42,7 @@ export const AuthenticationProvider = ({ children }) => {
 
 			router.push('/')
 		} catch (error) {
-			if (error.response & error.response.data) {
+			if (error.response && error.response.data) {
 				setError(error.response.data.message)
 				return
 			} else if (error.request) {
@@ -76,7 +76,7 @@ export const AuthenticationProvider = ({ children }) => {
 			await axios.post('http://localhost:3000/api/register', body, config)
 			login({ username, password })
 		} catch (error) {
-			if (error.response & error.response.data) {
+			if (error.response && error.response.data) {
 				setError(error.response.data.message)
 				return
 			} else if (error.request) {
@@ -98,7 +98,7 @@ export const AuthenticationProvider = ({ children }) => {
 			setAccessToken(null)
 
 		} catch (error) {
-			if (error.response & error.response.data) {
+			if (error.response && error.response.data) {
 				setError(error.response.data.message)
 				return
 			} else if (error.request) {
@@ -132,9 +132,11 @@ export const AuthenticationProvider = ({ children }) => {
 				}
 			}
 		}
-
+		const clearError=()=>{
+			setError(null)
+		}
 	return (
-		<AuthenticationContext.Provider value={{ user, accessToken, error, login, register, logout }}>
+		<AuthenticationContext.Provider value={{ user, accessToken, error, login, register, logout, clearError}}>
 			{children}
 		</AuthenticationContext.Provider>
 	)

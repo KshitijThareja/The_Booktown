@@ -220,7 +220,7 @@ const DonatePage=()=> {
                   <div className="">
                     <button
                       type="submit"
-                      className="text-white bg-darksalmon hover:bg-white hover:text-darksalmon border-darksalmon font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                       className="text-white bg-darksalmon hover:bg-white hover:text-darksalmon border-darksalmon font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                       onClick={DonationInfo}
                     >
                       Submit

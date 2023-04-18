@@ -38,5 +38,4 @@ class RegisterUserAPIView(CreateAPIView):
 
 class CreateBookAPIView(CreateAPIView):
     permission_classes = [permissions.AllowAny]
- 
     serializer_class = BookSerializer
