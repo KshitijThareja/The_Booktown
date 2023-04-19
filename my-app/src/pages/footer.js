@@ -48,7 +48,7 @@ const Footer = () => {
         <div className="flex flex-col space-y-2 text-sm text-white-400">
 		
 		<div className="text-white-400 text-center ">© Copyright 2023. All Rights Reserved
-		<span className="text-darksalmon ">KT-KS</span>
+		<span className="text-darksalmon ml-2">KT-KS</span>
 		</div>
         </div>
 	</div>

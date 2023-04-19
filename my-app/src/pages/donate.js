@@ -6,15 +6,16 @@ import Footer from "./footer";
 import axios from "axios";
 
 const DonatePage=()=> {
-  const [email, setEmail] = useState(" ");
-  const [full_name, setFull_name] = useState(" ");
-  const [phone_no, setPhone_no] = useState(" ");
-  const [city, setCity] = useState(" ");
-  const [no_of_books, setNo_of_books] = useState(" ");
-  const [address, setAddress] = useState(" ");
-  const [pin_code, setPin_code] = useState(" ");
-//   const [submit, setSubmit] = useState(false);
+  const [email, setEmail] = useState("");
+  const [full_name, setFull_name] = useState("");
+  const [phone_no, setPhone_no] = useState("");
+  const [city, setCity] = useState("");
+  const [no_of_books, setNo_of_books] = useState("");
+  const [address, setAddress] = useState("");
+  const [pin_code, setPin_code] = useState("");
+
   const { user } = useContext(AuthenticationContext);
+  const a=user;
   const DonationInfo= async()=>{
     let formField= new FormData()
     formField.append("email",email)
@@ -24,6 +25,7 @@ const DonatePage=()=> {
     formField.append("address",address)
     formField.append("pin_code",pin_code)
     formField.append("no_of_books",no_of_books)
+    formField.append("username",a.username)
  
     await axios({
       method: "post",
@@ -103,7 +105,7 @@ const DonatePage=()=> {
                       type="tel"
                       id="phone"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
-                      placeholder="Enter your phone number XXX-XXX-XXXX"
+                      placeholder="Enter your phone number"
                       required
                       onChange={(e) => setPhone_no(e.target.value)}
                       value={phone_no}
@@ -194,7 +196,15 @@ const DonatePage=()=> {
                       onChange={(e) => setNo_of_books(e.target.value)}
                       value={no_of_books}
                     />
+                    {/* <input
+                      type="hidden"
+                      id="username"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
+                      onChange={(e) => setUsername(e.target.value)}
+                      value={username}
+                    /> */}
                   </div>
+
                   <div className=" items-center h-5">
                     <input
                       id="remember"
