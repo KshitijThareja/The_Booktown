@@ -18,7 +18,7 @@ const AboutPage = () => {
           }}
           className=" text-white text-[3.56rem] flex font-quicksand text-center items-center justify-center"
         >
-          About
+          <span className="mt-10 font-quicksand justify-self-center">About</span>
         </div>
       </div>
       <div className=" grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:gap-x-6 justify-items-center place-items-center mb-8 mt-5">

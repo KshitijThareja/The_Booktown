@@ -30,7 +30,7 @@ export const AuthenticationProvider = ({ children }) => {
 		try {
 			const { data: accessResponse } = await axios.post('http://localhost:3000/api/login', body, config)
 
-			console.log(accessResponse, "hell")
+			console.log(accessResponse)
 
 			if (accessResponse && accessResponse.user) {
 				setUser(accessResponse.user)

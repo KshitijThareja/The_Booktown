@@ -3,7 +3,6 @@ import { Snackbar, Alert } from "@mui/material";
 import MainNavigation from "./main-navigation";
 import AuthenticationContext from "../context/AuthenticationContext";
 import { useState, useContext, useEffect } from "react";
-import { FaFacebookF, FaEnvelope, FaRegEnvelope } from "react-icons/fa";
 import axios from "axios";
 import { useRouter } from "next/router";
 function Login() {
