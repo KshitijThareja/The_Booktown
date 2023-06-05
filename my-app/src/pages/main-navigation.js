@@ -68,7 +68,7 @@ function MainNavigation() {
               <li>
                 <Link href="/signup" passHref>
                   <button
-                    className={`px-4 py-2 block bg-white text-black font-semibold border border-black cursor-pointer hover:bg-black hover:text-white hover:border-black mr-6  mt-0 rounded-lg shadow hover:scale-110 ease-in duration-300 ${
+                    className={`px-4 py-2 block bg-white text-black font-semibold border border-black cursor-pointer hover:bg-black hover:text-white hover:border-black mr-6 text-[0.8rem] mt-0 rounded-lg shadow hover:scale-110 ease-in duration-300 ${
                       open ? "my-2" : ""
                     }`}
                   >
@@ -82,7 +82,7 @@ function MainNavigation() {
               <li>
                 <Link href="/logout" passHref>
                   <button
-                    className="px-5 py-2 block bg-black text-white font-semibold border border-black cursor-pointer hover:bg-white hover:text-black hover:border-black mt-0 rounded-lg shadow hover:scale-110 ease-in duration-300"
+                    className="px-5 py-2 block bg-black text-white font-semibold border border-black cursor-pointer hover:bg-white hover:text-black hover:border-black mt-0 rounded-lg text-[0.8rem] mb-4 shadow hover:scale-110 ease-in duration-300"
                     onClick={handleLogout}
                   >
                     Log out
@@ -94,7 +94,7 @@ function MainNavigation() {
                 {" "}
                 <Link href="/login" passHref>
                   <button
-                    className={`px-5 py-2 block bg-black text-white font-semibold border border-black cursor-pointer hover:bg-white hover:text-black hover:border-black mt-0 rounded-lg shadow hover:scale-110 ease-in duration-300 ${
+                    className={`px-5 py-2 block bg-black text-white font-semibold border border-black cursor-pointer hover:bg-white text-[0.8rem] mb-4 hover:text-black hover:border-black mt-0 rounded-lg shadow hover:scale-110 ease-in duration-300 ${
                       open ? "my-2 ml-0.5" : ""
                     }`}
                   >
@@ -104,16 +104,6 @@ function MainNavigation() {
               </li>
             )}
 
-            {/* (
-                            <li>
-                            <Link className="lg:px-5 py-2 block hover:text-darksalmon font-semibold hover:scale-110 ease-in duration-300" href="#">Donate</Link>
-                            </li>
-                            ):
-                            (
-                            <li>
-                            <Link className="lg:px-5 py-2 block hover:text-darksalmon font-semibold hover:scale-110 ease-in duration-300 mr-4" href="#">Contact</Link>
-                            </li>
-                            )} */}
           </ul>
         </nav>
       </div>

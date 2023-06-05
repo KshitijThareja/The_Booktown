@@ -3,7 +3,7 @@ import Link from "next/link";
 const Footer = () => {
     return (
     <footer className="p-6 bg-black text-white  ">
-	<div className="container grid grid-cols-2 mx-auto gap-x-3 gap-y-8 sm:grid-cols-3 md:grid-cols-4 ">
+	<div className="container grid grid-cols-2 mx-auto gap-x-3 gap-y-8 sm:grid-cols-4 md:grid-cols-4 ">
 		<div className="flex flex-col space-y-5 mx-auto ">
 			<h2 className="font-medium">About Us</h2>
 			<div className="flex flex-col space-y-4 text-sm text-white-400">
@@ -39,12 +39,12 @@ const Footer = () => {
 				
 			</div>
 		</div>
-		<div className="justify-self-end self-end bg-black">
+		<div className="justify-self-end self-end sm:order-last bg-black">
 			<WhatsAppIcon/>
 		</div>
 	
 	</div>
-	<div className="flex items-center justify-center px-6 pt-12 text-sm  ">
+	<div className="flex items-center justify-center px-6 pt-8 text-sm  ">
         <div className="flex flex-col space-y-2 text-sm text-white-400">
 		
 		<div className="text-white-400 text-center ">© Copyright 2023. All Rights Reserved

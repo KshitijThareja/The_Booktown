@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <div className="">
       <MainNavigation />
-      <div className="grid grid-cols-1 mt-20 justify-items-center sm:grid-cols-3 md:grid-cols-3 md:gap-0">
+      <div className="grid grid-cols-1 mt-20 justify-items-center sm:grid-cols-3 md:grid-cols-3 gap-y-6 ">
         <div className="grid grid-cols-2 justify-items-center sm:grid-cols-1">
           <div className="w-[3rem] place-self-center">
             <img
