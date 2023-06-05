@@ -15,14 +15,15 @@ const DonatePage = () => {
   const [no_of_books, setNo_of_books] = useState("");
   const [address, setAddress] = useState("");
   const [pin_code, setPin_code] = useState("");
-  // const [init_cat, setInit_Cat] = useState("");
+  const [init_cat, setInit_Cat] = useState("");
+  const[primary,setPrimary]=useState("");
   const [inputFields, setInputFields] = useState([
     {
       category: "",
       num: "",
     },
   ]);
-  
+
   const addInputField = () => {
     setInputFields([
       ...inputFields,
@@ -32,42 +33,32 @@ const DonatePage = () => {
       },
     ]);
   };
+  console.log(inputFields);
   const removeInputFields = (index) => {
     const rows = [...inputFields];
     rows.splice(index, 1);
     setInputFields(rows);
   };
-  const newInputField = inputFields.map(p =>
-    p.value === 'Pre-Primary'
-      ? { ...p, desc: 'pre-primary' }
-      : p,
-  
-  );
+
   const handleChange = (index, evnt) => {
     const { name, value } = evnt.target;
     const list = [...inputFields];
     list[index][name] = value;
     setInputFields(list);
-  
   };
-  // for(let i=0; i<inputFields.length, i++;){
-  //   if(inputFields[i].category=="Pre-Primary"){
-  //     inputFields[i].category="pre_primary";
-      
-  //   }
-  //   else if(inputFields[i].category=="Primary"){
-  //     inputFields[i].category="primary";
-  //   } 
-  //   else if(inputFields[i].category=="Secondary"){
-  //     inputFields[i].category="secondary";
-  //   }
-  //   else if(inputFields[i].category=="Higher Secondary"){
-  //     inputFields[i].category="higher_secondary";
-  //   }
-  // }
-  console.log(inputFields);
+
+  // console.log(inputFields);
+  
   const { user } = useContext(AuthenticationContext);
   const a = user;
+
+  for(let i=0; i<inputFields.length; i++){
+    if(inputFields[i].category=="Pre-Primary"){
+      inputFields[i].num=init_cat;
+      }
+    }
+  console.log(phone_no);
+
   const DonationInfo = async () => {
     let formField = new FormData();
     formField.append("email", email);
@@ -78,7 +69,8 @@ const DonatePage = () => {
     formField.append("pin_code", pin_code);
     formField.append("no_of_books", no_of_books);
     formField.append("username", a.username);
-    // formField.append("primary", inputFields);
+    formField.append("category", init_cat);
+   
 
     await axios({
       method: "post",
@@ -257,7 +249,7 @@ const DonatePage = () => {
                   <div className="row">
                     <div className="col-sm-8">
                       {inputFields.map((data, index) => {
-                        const {category, num } = data;
+                        const { category, num } = data;
                         return (
                           <div className="row my-3" key={index}>
                             <div className="col">
@@ -289,15 +281,13 @@ const DonatePage = () => {
                               />
                             </div>
                             <div className="col">
-                              {inputFields.length !== 1 ? (
+                              {inputFields.length !== 1 && (
                                 <button
                                   className="btn btn-outline-danger"
-                                  onClick={removeInputFields}
+                                  onClick={() => removeInputFields(index)}
                                 >
                                   Remove
                                 </button>
-                              ) : (
-                                ""
                               )}
                             </div>
                           </div>
@@ -307,7 +297,7 @@ const DonatePage = () => {
                       <div className="row">
                         <div className="col-sm-12">
                           <button
-                            className="btn btn-outline-success "
+                            className="btn btn-outline-success"
                             onClick={addInputField}
                           >
                             Add New
@@ -315,8 +305,8 @@ const DonatePage = () => {
                         </div>
                       </div>
                     </div>
+                    <div className="col-sm-4"></div>
                   </div>
-                  <div className="col-sm-4"></div>
                 </div>
 
                 <div className=" items-center h-5">
@@ -383,5 +373,7 @@ const DonatePage = () => {
       <Footer />
     </div>
   );
-};
+}
+
+
 export default DonatePage;
