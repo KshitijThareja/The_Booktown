@@ -11,7 +11,6 @@ const DonatePage = () => {
   const [email, setEmail] = useState("");
   const [full_name, setFull_name] = useState("");
   const [phone_no, setPhone_no] = useState("");
-  const [city, setCity] = useState("");
   const [no_of_books, setNo_of_books] = useState("");
   const [address, setAddress] = useState("");
   const [pin_code, setPin_code] = useState("");
@@ -84,7 +83,6 @@ for (var i = 0; i < stringify.length; i++) {
     formField.append("email", email);
     formField.append("full_name", full_name);
     formField.append("phone_no", phone_no);
-    formField.append("city", city);
     formField.append("address", address);
     formField.append("pin_code", pin_code);
     formField.append("no_of_books", no_of_books);
@@ -221,23 +219,6 @@ for (var i = 0; i < stringify.length; i++) {
                 </div>
                 <div className="w-[20rem] md:w-[20rem]">
                   <label
-                    for="city"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    City
-                  </label>
-                  <input
-                    type="text"
-                    id="city"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
-                    placeholder="City"
-                    required
-                    onChange={(e) => setCity(e.target.value)}
-                    value={city}
-                  />
-                </div>
-                <div className="w-[20rem] md:w-[20rem]">
-                  <label
                     for="pincode"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
@@ -368,7 +349,7 @@ for (var i = 0; i < stringify.length; i++) {
                   {showModal ? (
         <>
           <div
-            className="justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+            className="justify-self-center items-center place-self-center mt-40 h-[30rem] md:mt-20 md:h-[43rem] overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               {/*content*/}
@@ -389,47 +370,47 @@ for (var i = 0; i < stringify.length; i++) {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                  Please read these Terms and Conditions carefully before using the book donation form on our website.<br/>
+                  <p className="my-1 text-slate-500 text-lg leading-relaxed">
+                  <span className="font-bold text-black">Please read these Terms and Conditions carefully before using the book donation form on our website.</span><br/><br/>
 
-Acceptance of Terms and Conditions<br/>
-By accessing or using the book donation form on our website, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not proceed with the donation process.<br/>
+<span className="font-semibold ">Acceptance of Terms and Conditions</span><br/>
+By accessing or using the book donation form on our website, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not proceed with the donation process.<br/><br/>
 
-Book Donation Eligibility<br/>
+<span className="font-semibold ">Book Donation Eligibility</span><br/>
 2.1 The book donation form is intended for individuals or organizations who wish to donate books.<br/>
-2.2 By submitting the donation form, you confirm that you are the legal owner of the books or have obtained the necessary permissions to donate them.<br/>
+2.2 By submitting the donation form, you confirm that you are the legal owner of the books or have obtained the necessary permissions to donate them.<br/><br/>
 
-Book Donation Process<br/>
+<span className="font-semibold ">Book Donation Process</span><br/>
 3.1 Complete and submit the book donation form with accurate and up-to-date information.<br/>
 3.2 Once you submit the form, you grant us the right to review the details provided and accept or decline the donation at our discretion.<br/>
-3.3 We reserve the right to refuse any book donation without providing a reason for the refusal.<br/>
+3.3 We reserve the right to refuse any book donation without providing a reason for the refusal.<br/><br/>
 
-Book Condition<br/>
+<span className="font-semibold ">Book Condition</span><br/>
 4.1 By donating books, you confirm that the books are in good condition, free from excessive damage, mold, or other issues that may render them unfit for use.<br/>
 4.2 We reserve the right to inspect the donated books upon receipt and determine their suitability for our purposes.<br/>
-4.3 Books that do not meet our criteria may be declined or disposed of at our discretion.<br/>
+4.3 Books that do not meet our criteria may be declined or disposed of at our discretion.<br/><br/>
 
-Ownership and Rights<br/>
+<span className="font-semibold ">Ownership and Rights</span><br/>
 5.1 By donating books, you transfer ownership of the donated books to us.<br/>
 5.2 We reserve the right to retain, sell, or dispose of the donated books as we see fit.<br/>
-5.3 We may use the donated books for our own purposes, including but not limited to resale, distribution, or charitable activities.<br/>
+5.3 We may use the donated books for our own purposes, including but not limited to resale, distribution, or charitable activities.<br/><br/>
 
-Personal Information<br/>
+<span className="font-semibold ">Personal Information</span><br/>
 6.1 By submitting the book donation form, you agree to provide accurate and complete personal information.<br/>
-6.2 We will handle your personal information in accordance with our Privacy Policy, which is available on our website.<br/>
+6.2 We will handle your personal information in accordance with our Privacy Policy, which is available on our website.<br/><br/>
 
-Liability<br/>
+<span className="font-semibold ">Liability</span><br/>
 7.1 We make no guarantees or warranties regarding the suitability, quality, or condition of the donated books.<br/>
 7.2 We shall not be held liable for any loss, damage, or injury arising from the donation, use, or handling of the donated books.<br/>
-7.3 You agree to indemnify and hold us harmless from any claims, costs, or damages arising from your donation or breach of these Terms and Conditions.<br/>
+7.3 You agree to indemnify and hold us harmless from any claims, costs, or damages arising from your donation or breach of these Terms and Conditions.<br/><br/>
 
-Modifications and Termination<br/>
+<span className="font-semibold ">Modifications and Termination</span><br/>
 8.1 We reserve the right to modify or terminate the book donation form or these Terms and Conditions at any time without prior notice.<br/>
 8.2 It is your responsibility to review the Terms and Conditions periodically for any changes.<br/>
-8.3 Continued use of the book donation form after any modifications indicates your acceptance of the updated Terms and Conditions.<br/>
+8.3 Continued use of the book donation form after any modifications indicates your acceptance of the updated Terms and Conditions.<br/><br/>
 
-Governing Law<br/>
-These Terms and Conditions shall be governed by and construed in accordance with the laws of [Jurisdiction]. Any disputes arising under or in connection with these Terms and Conditions shall be subject to the exclusive jurisdiction of the courts of [Jurisdiction].<br/>
+<span className="font-semibold ">Governing Law</span><br/>
+These Terms and Conditions shall be governed by and construed in accordance with the laws of Jurisdiction. Any disputes arising under or in connection with these Terms and Conditions shall be subject to the exclusive jurisdiction of the courts of Jurisdiction.<br/><br/>
 
 By using the book donation form, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.
                   </p>
