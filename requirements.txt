@@ -1,34 +1,34 @@
-apturl==0.5.2
+# apturl==0.5.2
 asgiref==3.6.0
 asttokens==2.2.1
 autopep8==2.0.1
 backcall==0.2.0
 bcrypt==3.2.0
 blinker==1.4
-Brlapi==0.8.3
+# Brlapi==0.8.3
 certifi==2020.6.20
 chardet==4.0.0
 click==8.0.3
 colorama==0.4.4
-command-not-found==0.3
+# command-not-found==0.3
 config==0.5.1
 cryptography==3.4.8
-cupshelpers==1.0
+# cupshelpers==1.0
 dbus-python==1.2.18
 decorator==5.1.1
-defer==1.0.6
+# defer==1.0.6
 distro==1.7.0
-distro-info===1.1build1
+# distro-info===1.1build1
 Django==4.1.5
 django-cors-headers==3.14.0
 django-filter==22.1
 djangorestframework==3.14.0
 djangorestframework-simplejwt==5.2.2
-duplicity==0.8.21
+# duplicity==0.8.21
 executing==1.2.0
 fasteners==0.14.1
 future==0.18.2
-gyp==0.1
+# gyp==0.1
 httplib2==0.20.2
 idna==3.3
 importlib-metadata==4.6.4
@@ -36,15 +36,15 @@ ipython==8.9.0
 jedi==0.18.2
 jeepney==0.7.1
 keyring==23.5.0
-language-selector==0.1
-launchpadlib==1.10.16
-lazr.restfulclient==0.14.4
-lazr.uri==1.0.6
-lockfile==0.12.2
-louis==3.20.0
-macaroonbakery==1.3.1
-Mako==1.1.3
-MarkupSafe==2.0.1
+# language-selector==0.1
+# launchpadlib==1.10.16
+# lazr.restfulclient==0.14.4
+# lazr.uri==1.0.6
+# lockfile==0.12.2
+# louis==3.20.0
+# macaroonbakery==1.3.1
+# Mako==1.1.3
+# MarkupSafe==2.0.1
 matplotlib-inline==0.1.6
 monotonic==1.6
 more-itertools==8.10.0
@@ -79,11 +79,11 @@ pyparsing==2.4.7
 pyperclip==1.8.2
 pyRFC3339==1.1
 PySimpleValidate==0.2.12
-python-apt==2.4.0+ubuntu1
-python-dateutil==2.8.1
-python-debian===0.1.43ubuntu1
-python-dotenv==0.21.0
-pytz==2022.1
+# python-apt==2.4.0+ubuntu1
+# python-dateutil==2.8.1
+# python-debian===0.1.43ubuntu1
+# python-dotenv==0.21.0
+# pytz==2022.1
 pyxdg==0.27
 PyYAML==5.4.1
 reportlab==3.6.8
@@ -102,18 +102,18 @@ ubuntu-drivers-common==0.0.0
 ufw==0.36.1
 unattended-upgrades==0.1
 urllib3==1.26.5
-usb-creator==0.3.7
-wadllib==1.3.6
-wcwidth==0.2.6
-xdg==5
-xkit==0.0.0
-zipp==1.0.0
-zombiedice==0.1.6
-zope.component==5.1.0
-zope.deferredimport==4.4
-zope.deprecation==5.0
-zope.event==4.6
-zope.hookable==5.4
-zope.interface==6.0
-zope.lifecycleevent==4.4
-zope.proxy==5.0.0
+# usb-creator==0.3.7
+# wadllib==1.3.6
+# wcwidth==0.2.6
+# xdg==5
+# xkit==0.0.0
+# zipp==1.0.0
+# zombiedice==0.1.6
+# zope.component==5.1.0
+# zope.deferredimport==4.4
+# zope.deprecation==5.0
+# zope.event==4.6
+# zope.hookable==5.4
+# zope.interface==6.0
+# zope.lifecycleevent==4.4
+# zope.proxy==5.0.0

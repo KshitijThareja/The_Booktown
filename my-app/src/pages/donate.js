@@ -39,25 +39,46 @@ const DonatePage = () => {
     rows.splice(index, 1);
     setInputFields(rows);
   };
-
+  const newInputField = inputFields.map(p =>
+    p.value === 'Pre-Primary'
+      ? { ...p, desc: 'pre-primary' }
+      : p,
+  
+  );
   const handleChange = (index, evnt) => {
     const { name, value } = evnt.target;
     const list = [...inputFields];
     list[index][name] = value;
     setInputFields(list);
   };
-
-  // console.log(inputFields);
-  
+  // for(let i=0; i<inputFields.length, i++;){
+  //   if(inputFields[i].category=="Pre-Primary"){
+  //     inputFields[i].category="pre_primary";
+      
+  //   }
+  //   else if(inputFields[i].category=="Primary"){
+  //     inputFields[i].category="primary";
+  //   } 
+  //   else if(inputFields[i].category=="Secondary"){
+  //     inputFields[i].category="secondary";
+  //   }
+  //   else if(inputFields[i].category=="Higher Secondary"){
+  //     inputFields[i].category="higher_secondary";
+  //   }
+  // }
+  console.log(inputFields);
   const { user } = useContext(AuthenticationContext);
   const a = user;
 
-  for(let i=0; i<inputFields.length; i++){
-    if(inputFields[i].category=="Pre-Primary"){
-      inputFields[i].num=init_cat;
-      }
-    }
+  // for(let i=0; i<inputFields.length; i++){
+  //   if(inputFields[i].category=="Pre-Primary"){
+  //     inputFields[i].num=init_cat;
+  //     }
+  //   }
   console.log(phone_no);
+  const inputFieldsArray = JSON.stringify(inputFields);
+  const savedInputFields = JSON.parse(inputFieldsArray);
+  console.log(savedInputFields);
 
   const DonationInfo = async () => {
     let formField = new FormData();
@@ -69,8 +90,20 @@ const DonatePage = () => {
     formField.append("pin_code", pin_code);
     formField.append("no_of_books", no_of_books);
     formField.append("username", a.username);
-    formField.append("category", init_cat);
-   
+    // for(i=0;i<savedInputFields.length; i++){
+    //   if(savedInputFields[i].category=='Pre-Primary'){
+    //     console.log('yes');
+    //     formField.append("primary", savedInputFields[i].num);
+    //   }
+    //   else if(savedInputFields[i].category=='Primary'){
+    //     formField.append("pre_primary", savedInputFields[i].num);
+    //   }
+    // }
+
+ 
+
+    
+    // formField.append("primary", inputFields);
 
     await axios({
       method: "post",
@@ -334,7 +367,7 @@ const DonatePage = () => {
                 <div className="">
                   <button
                     type="submit"
-                    className="text-white bg-darksalmon hover:bg-white hover:text-darksalmon border-darksalmon font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                    className="text-white bg-darksalmon hover:bg-white hover:text-darksalmon border-darksalmon font-medium rounded-lg text-sm w-full sm:w-auto px-9 py-2.5 text-center text-[1rem]"
                     onClick={DonationInfo}
                   >
                     Submit
