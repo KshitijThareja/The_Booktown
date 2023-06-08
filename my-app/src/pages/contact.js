@@ -13,15 +13,7 @@ const Contact = () => {
   const [pin_code, setPin_code] = useState("");
   const [showModal, setShowModal] = useState(false);
   const DonationInfo = async () => {
-    // for(i=0;i<json.length; i++){
-    //   if(json[i].category=='Pre-Primary'){
-    //     // console.log('yes');
-    //     setPre_primary(json[i].num);
-    //   }
-    //   else if(json[i].category=='Primary'){
-    //     setPrimary(json[i].num);
-    //   }
-    // }
+
     let formField = new FormData();
     formField.append("email", email);
     formField.append("full_name", full_name);
@@ -35,16 +27,6 @@ const Contact = () => {
     formField.append("pre_primary", pre_primary);
     formField.append("secondary", secondary);
     formField.append("senior_secondary", senior_secondary);
-    // for(i=0;i<json.length; i++){
-    //   if(json[i].category=='Pre-Primary'){
-    //     console.log('yes');
-    //     formField.append("primary", json[i].num);
-    //   }
-    //   else if(json[i].category=='Primary'){
-    //     formField.append("pre_primary", json[i].num);
-    //   }
-    // }
-    
 
     await axios({
       method: "post",
@@ -189,13 +171,6 @@ const Contact = () => {
                     onChange={(e) => setNo_of_books(e.target.value)}
                     value={no_of_books}
                   />
-                  {/* <input
-                      type="hidden"
-                      id="username"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
-                      onChange={(e) => setUsername(e.target.value)}
-                      value={username}
-                    /> */}
                 </div>
                 <div className="">
                   <button
