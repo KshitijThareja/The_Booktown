@@ -31,5 +31,6 @@ urlpatterns = [
     path('api/user/', views.UserAPIView.as_view(), name='login'),
     path('api/register/', views.RegisterUserAPIView.as_view(), name='register'),
     path('api/book', views.CreateBookAPIView.as_view(), name='create_book'),
+    path('api/contact', views.CreateContactAPIView.as_view(), name='create_contact'),
 ]
  

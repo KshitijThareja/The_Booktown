@@ -11,12 +11,10 @@ const DonatePage = () => {
   const [email, setEmail] = useState("");
   const [full_name, setFull_name] = useState("");
   const [phone_no, setPhone_no] = useState("");
-  const [city, setCity] = useState("");
   const [no_of_books, setNo_of_books] = useState("");
   const [address, setAddress] = useState("");
   const [pin_code, setPin_code] = useState("");
-  const [init_cat, setInit_Cat] = useState("");
-  const[primary,setPrimary]=useState("");
+  const [showModal, setShowModal] = useState(false);
   const [inputFields, setInputFields] = useState([
     {
       category: "",
@@ -51,22 +49,30 @@ const DonatePage = () => {
     list[index][name] = value;
     setInputFields(list);
   };
-  // for(let i=0; i<inputFields.length, i++;){
-  //   if(inputFields[i].category=="Pre-Primary"){
-  //     inputFields[i].category="pre_primary";
-      
-  //   }
-  //   else if(inputFields[i].category=="Primary"){
-  //     inputFields[i].category="primary";
-  //   } 
-  //   else if(inputFields[i].category=="Secondary"){
-  //     inputFields[i].category="secondary";
-  //   }
-  //   else if(inputFields[i].category=="Higher Secondary"){
-  //     inputFields[i].category="higher_secondary";
-  //   }
-  // }
-  console.log(inputFields);
+  // console.log(inputFields);
+ 
+  var json = JSON.stringify(inputFields);
+  console.log(json);
+  var stringify = JSON.parse(json);
+for (var i = 0; i < stringify.length; i++) {
+  if(stringify[i]['category']=='Pre-Primary'){
+    //     // console.log('yes');
+        pre_primary=stringify[i]['num'];
+        console.log(pre_primary);
+      }
+      else if(stringify[i]['category']=='Primary'){
+        primary=stringify[i]['num'];
+        console.log(primary);
+      }
+      else if(stringify[i]['category']=='Secondary'){
+        secondary=stringify[i]['num'];
+        console.log(secondary);
+      }
+      else if(stringify[i]['category']=='Senior-Secondary'){
+        senior_secondary=stringify[i]['num'];
+        console.log(senior_secondary);
+      }
+}
   const { user } = useContext(AuthenticationContext);
   const a = user;
 
@@ -81,29 +87,37 @@ const DonatePage = () => {
   console.log(savedInputFields);
 
   const DonationInfo = async () => {
+    // for(i=0;i<json.length; i++){
+    //   if(json[i].category=='Pre-Primary'){
+    //     // console.log('yes');
+    //     setPre_primary(json[i].num);
+    //   }
+    //   else if(json[i].category=='Primary'){
+    //     setPrimary(json[i].num);
+    //   }
+    // }
     let formField = new FormData();
     formField.append("email", email);
     formField.append("full_name", full_name);
     formField.append("phone_no", phone_no);
-    formField.append("city", city);
     formField.append("address", address);
     formField.append("pin_code", pin_code);
     formField.append("no_of_books", no_of_books);
     formField.append("username", a.username);
-    // for(i=0;i<savedInputFields.length; i++){
-    //   if(savedInputFields[i].category=='Pre-Primary'){
+    formField.append("primary", primary);
+    formField.append("pre_primary", pre_primary);
+    formField.append("secondary", secondary);
+    formField.append("senior_secondary", senior_secondary);
+    // for(i=0;i<json.length; i++){
+    //   if(json[i].category=='Pre-Primary'){
     //     console.log('yes');
-    //     formField.append("primary", savedInputFields[i].num);
+    //     formField.append("primary", json[i].num);
     //   }
-    //   else if(savedInputFields[i].category=='Primary'){
-    //     formField.append("pre_primary", savedInputFields[i].num);
+    //   else if(json[i].category=='Primary'){
+    //     formField.append("pre_primary", json[i].num);
     //   }
     // }
-
- 
-
     
-    // formField.append("primary", inputFields);
 
     await axios({
       method: "post",
@@ -218,23 +232,6 @@ const DonatePage = () => {
                     required
                     onChange={(e) => setAddress(e.target.value)}
                     value={address}
-                  />
-                </div>
-                <div className="w-[20rem] md:w-[20rem]">
-                  <label
-                    for="city"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    City
-                  </label>
-                  <input
-                    type="text"
-                    id="city"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
-                    placeholder="City"
-                    required
-                    onChange={(e) => setCity(e.target.value)}
-                    value={city}
                   />
                 </div>
                 <div className="w-[20rem] md:w-[20rem]">
@@ -358,11 +355,100 @@ const DonatePage = () => {
                     <a
                       href="#"
                       className="text-darksalmon hover:underline dark:text-darksalmon hover:scale-50 ease-in duration-300 "
+                      onClick={() => setShowModal(true)}
+
                     >
                       terms and conditions
                     </a>
-                    .
                   </label>
+                  {showModal ? (
+        <>
+          <div
+            className="justify-self-center items-center place-self-center mt-40 h-[30rem] md:mt-20 md:h-[43rem] overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
+            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+              {/*content*/}
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                {/*header*/}
+                <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                  <h3 className="text-3xl font-semibold">
+                    Terms and conditions
+                  </h3>
+                  <button
+                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    onClick={() => setShowModal(false)}
+                  >
+                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                      ×
+                    </span>
+                  </button>
+                </div>
+                {/*body*/}
+                <div className="relative p-6 flex-auto">
+                  <p className="my-1 text-slate-500 text-lg leading-relaxed">
+                  <span className="font-bold text-black">Please read these Terms and Conditions carefully before using the book donation form on our website.</span><br/><br/>
+
+<span className="font-semibold ">Acceptance of Terms and Conditions</span><br/>
+By accessing or using the book donation form on our website, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not proceed with the donation process.<br/><br/>
+
+<span className="font-semibold ">Book Donation Eligibility</span><br/>
+2.1 The book donation form is intended for individuals or organizations who wish to donate books.<br/>
+2.2 By submitting the donation form, you confirm that you are the legal owner of the books or have obtained the necessary permissions to donate them.<br/><br/>
+
+<span className="font-semibold ">Book Donation Process</span><br/>
+3.1 Complete and submit the book donation form with accurate and up-to-date information.<br/>
+3.2 Once you submit the form, you grant us the right to review the details provided and accept or decline the donation at our discretion.<br/>
+3.3 We reserve the right to refuse any book donation without providing a reason for the refusal.<br/><br/>
+
+<span className="font-semibold ">Book Condition</span><br/>
+4.1 By donating books, you confirm that the books are in good condition, free from excessive damage, mold, or other issues that may render them unfit for use.<br/>
+4.2 We reserve the right to inspect the donated books upon receipt and determine their suitability for our purposes.<br/>
+4.3 Books that do not meet our criteria may be declined or disposed of at our discretion.<br/><br/>
+
+<span className="font-semibold ">Ownership and Rights</span><br/>
+5.1 By donating books, you transfer ownership of the donated books to us.<br/>
+5.2 We reserve the right to retain, sell, or dispose of the donated books as we see fit.<br/>
+5.3 We may use the donated books for our own purposes, including but not limited to resale, distribution, or charitable activities.<br/><br/>
+
+<span className="font-semibold ">Personal Information</span><br/>
+6.1 By submitting the book donation form, you agree to provide accurate and complete personal information.<br/>
+6.2 We will handle your personal information in accordance with our Privacy Policy, which is available on our website.<br/><br/>
+
+<span className="font-semibold ">Liability</span><br/>
+7.1 We make no guarantees or warranties regarding the suitability, quality, or condition of the donated books.<br/>
+7.2 We shall not be held liable for any loss, damage, or injury arising from the donation, use, or handling of the donated books.<br/>
+7.3 You agree to indemnify and hold us harmless from any claims, costs, or damages arising from your donation or breach of these Terms and Conditions.<br/><br/>
+
+<span className="font-semibold ">Modifications and Termination</span><br/>
+8.1 We reserve the right to modify or terminate the book donation form or these Terms and Conditions at any time without prior notice.<br/>
+8.2 It is your responsibility to review the Terms and Conditions periodically for any changes.<br/>
+8.3 Continued use of the book donation form after any modifications indicates your acceptance of the updated Terms and Conditions.<br/><br/>
+
+<span className="font-semibold ">Governing Law</span><br/>
+These Terms and Conditions shall be governed by and construed in accordance with the laws of Jurisdiction. Any disputes arising under or in connection with these Terms and Conditions shall be subject to the exclusive jurisdiction of the courts of Jurisdiction.<br/><br/>
+
+By using the book donation form, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.
+                  </p>
+                </div>
+                {/*footer*/}
+                <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                  <button
+                    className="bg-white hover:bg-darksalmon text-darksalmon font-semibold hover:text-white py-2 px-5 border border-darksalmon hover:border-darksalmon rounded  uppercase text-sm mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                  >
+                    Close
+                  </button>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      ) : null}
+    
+
                 </div>
                 <div className="">
                   <button
