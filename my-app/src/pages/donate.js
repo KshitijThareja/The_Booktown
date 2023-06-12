@@ -16,6 +16,7 @@ const DonatePage = () => {
   const [address, setAddress] = useState("");
   const [pin_code, setPin_code] = useState("");
   const [showModal, setShowModal] = useState(false);
+    const [formValues, setFormValues] = useState([{ type: "", quantity: 0 }])
   const [inputFields, setInputFields] = useState([
     {
       category: "",
@@ -45,7 +46,12 @@ const DonatePage = () => {
   
   };
   // console.log(inputFields);
- 
+ let dataValue={
+    pre_primary:0,
+    primary:0,
+    secondary:0,
+    senior_secondary:0
+ }
   var json = JSON.stringify(inputFields);
   console.log(json);
   var stringify = JSON.parse(json);
@@ -70,7 +76,70 @@ for (var i = 0; i < stringify.length; i++) {
 }
   const { user } = useContext(AuthenticationContext);
   const a = user;
-  const DonationInfo = async () => {
+    const handleTypes = (i, e) => {
+        let data = [...formValues];
+        data[i][e.target.name] = e.target.value;
+        setFormValues(data);
+        console.log(formValues)
+    }
+
+    let addFormFields = () => {
+        setFormValues([...formValues, { type: "", quantity: 0}]);
+    }
+    let removeFormFields = (i) => {
+        let newFormValues = [...formValues];
+        newFormValues.splice(i, 1);
+        setFormValues(newFormValues)
+    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(e.target).entries());
+        let books=null
+        if (formValues[0].type === "" || formValues[0].quantity === 0) {
+            books = null;
+        }
+        else {
+            for(let i=0;i<formValues.length;i++) {
+            if(formValues[i].type==="Pre-Primary") {
+                dataValue['pre_primary'] = formValues[i].quantity
+            }
+            else if(formValues[i].type==="Primary"){
+                dataValue['primary'] = formValues[i].quantity
+            }
+            else if(formValues[i].type==="Secondary"){
+                dataValue['secondary'] = formValues[i].quantity
+            }
+            else if(formValues[i].type==="Senior-Secondary"){
+                dataValue['senior_secondary'] = formValues[i].quantity
+            }
+            }
+        }
+        const bodyObject={
+            full_name:data.full_name,
+            email:data.email,
+            phone_no:data.phone,
+            city:data.city,
+            address:data.address,
+            pin_code:data.pin_code,
+            no_of_books:data.n_books,
+            username:a.username,
+            pre_primary:Number(dataValue['pre_primary']),
+            primary:Number(dataValue['primary']),
+            secondary:Number(dataValue['secondary']),
+            senior_secondary:Number(dataValue['senior_secondary'])
+
+        }
+        const response = await fetch('http://127.0.0.1:8000/api/book', {
+            method: 'POST',
+            body: JSON.stringify(bodyObject),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const result = await response.json();
+        console.log(result);
+   }
+    const DonationInfo = async () => {
     // for(i=0;i<json.length; i++){
     //   if(json[i].category=='Pre-Primary'){
     //     // console.log('yes');
@@ -138,7 +207,7 @@ for (var i = 0; i < stringify.length; i++) {
         </div>
         {user ? (
           <div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 gap-6 mt-4 sm:place-items-center justify-items-center py-6 md:justify-self-end md:mt-20 md:ml-20">
                 <div className="text-center h-[3rem] md:mb-10 justify-self-center sm:justify-self-center md:text-center md:ml-3 ">
                   <h2 className="text-black text-[1.5rem] md:text-[2rem]">
@@ -152,18 +221,17 @@ for (var i = 0; i < stringify.length; i++) {
                 </div>
                 <div className="w-[20rem] md:w-[20rem]">
                   <label
-                    htmlFor="first_name"
+                    htmlFor="full_name"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Full name
                   </label>
                   <input
                     type="text"
-                    id="first_name"
+                    id="full_name"
+                    name="full_name"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                     placeholder="Enter full name "
-                    onChange={(e) => setFull_name(e.target.value)}
-                    value={full_name}
                   />
                 </div>
 
@@ -177,11 +245,10 @@ for (var i = 0; i < stringify.length; i++) {
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                     placeholder="Enter your phone number"
                     required
-                    onChange={(e) => setPhone_no(e.target.value)}
-                    value={phone_no}
                   />
                 </div>
 
@@ -195,11 +262,10 @@ for (var i = 0; i < stringify.length; i++) {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                     placeholder="Email address"
                     required
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
                   />
                 </div>
                 <div className="w-[20rem] md:w-[20rem]">
@@ -215,8 +281,7 @@ for (var i = 0; i < stringify.length; i++) {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                     placeholder="Address"
                     required
-                    onChange={(e) => setAddress(e.target.value)}
-                    value={address}
+                    name="address"
                   />
                 </div>
                 <div className="w-[20rem] md:w-[20rem]">
@@ -231,26 +296,24 @@ for (var i = 0; i < stringify.length; i++) {
                     id="city"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                     placeholder="City"
+                    name="city"
                     required
-                    onChange={(e) => setCity(e.target.value)}
-                    value={city}
                   />
                 </div>
                 <div className="w-[20rem] md:w-[20rem]">
                   <label
-                    for="pincode"
+                    for="pin_code"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Pincode
                   </label>
                   <input
                     type="text"
-                    id="pincode"
+                    id="pin_code"
+                    name="pin_code"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                     placeholder="Area pincode"
                     required
-                    onChange={(e) => setPin_code(e.target.value)}
-                    value={pin_code}
                   />
                 </div>
                 <div className="w-[20rem] md:w-[20rem]">
@@ -266,8 +329,7 @@ for (var i = 0; i < stringify.length; i++) {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                     placeholder="Number of books"
                     required
-                    onChange={(e) => setNo_of_books(e.target.value)}
-                    value={no_of_books}
+                    name="n_books"
                   />
                   {/* <input
                       type="hidden"
@@ -280,59 +342,31 @@ for (var i = 0; i < stringify.length; i++) {
                 <div className="container">
                   <div className="row">
                     <div className="col-sm-8">
-                      {inputFields.map((data, index) => {
-                        const {category, num } = data;
-                        return (
-                          <div className="row my-3" key={index}>
-                            <div className="col">
-                              <div className="form-group">
-                                <select
-                                  alignRight
-                                  title="Dropdown right"
-                                  id="dropdown-menu-align-right"
-                                  onChange={(evnt) => handleChange(index, evnt)}
-                                  value={category}
-                                  name="category"
-                                  className="form-control"
-                                >
-                                  <option>Pre-Primary</option>
-                                  <option>Primary</option>
-                                  <option>Secondary</option>
-                                  <option>Senior-Secondary</option>
-                                </select>
-                              </div>
+                        {formValues.map((element, index) => (
+                            <div className="flex flex-wrap -mx-3 mb-6" key={index}>
+                                <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
+                                    <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5" name="type" id="type" defaultValue={"Select Type"} onChange={e => handleTypes(index, e)}>
+                                        <option disabled>Select Type</option>
+                                        <option>Pre-Primary</option>
+                                        <option>Primary</option>
+                                        <option>Secondary</option>
+                                        <option>Senior-Secondary</option>
+                                    </select>
+                                </div>
+                                <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
+                                    <input title="Enter valid student Email-id" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 " name="quantity" id="quantity" type="Number" placeholder="Quantity" onChange={e => handleTypes(index, e)} />
+                                </div>
+                                {index ?
+                                    <button type="button" className="button remove py-2 px-2 text-white bg-primary rounded-lg font-base" onClick={() => removeFormFields(index)}>Remove</button>
+                                    : null}
                             </div>
-                            <div className="col">
-                              <input
-                                type="text"
-                                onChange={(evnt) => handleChange(index, evnt)}
-                                value={num}
-                                name="num"
-                                className="form-control"
-                                placeholder="Number of books"
-                              />
-                            </div>
-                            <div className="col">
-                              {inputFields.length !== 1 ? (
-                                <button
-                                  className="btn btn-outline-danger"
-                                  onClick={removeInputFields}
-                                >
-                                  Remove
-                                </button>
-                              ) : (
-                                ""
-                              )}
-                            </div>
-                          </div>
-                        );
-                      })}
+                        ))}
 
                       <div className="row">
                         <div className="col-sm-12">
                           <button
                             className="btn btn-outline-success "
-                            onClick={addInputField}
+                            onClick={() => addFormFields()}
                           >
                             Add New
                           </button>
@@ -458,7 +492,6 @@ By using the book donation form, you acknowledge that you have read, understood,
                   <button
                     type="submit"
                     className="text-white bg-darksalmon hover:bg-white hover:text-darksalmon border-darksalmon font-medium rounded-lg text-sm w-full sm:w-auto px-9 py-2.5 text-center text-[1rem]"
-                    onClick={DonationInfo}
                   >
                     Submit
                   </button>

@@ -7,6 +7,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = User
 		fields = ['url', 'username', 'email', 'groups']
+
 class RegisterUserSerializer(serializers.ModelSerializer):
 	def create(self, validated_data):
 		user = User.objects.create_user(
@@ -17,13 +18,13 @@ class RegisterUserSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = User
 		fields = ['url', 'username', 'password','email', 'groups']
-		
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = Group
 		fields = ['url', 'name']
+
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = '__all__' 
+        fields = ['full_name', 'email', 'phone_no', 'address', 'city', 'pin_code', 'no_of_books', 'username', 'pre_primary', 'primary', 'secondary', 'senior_secondary']
