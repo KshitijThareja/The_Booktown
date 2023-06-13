@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.contrib.auth.models import User, Group
-from rest_framework import permissions
-from api.serializers import UserSerializer, GroupSerializer, RegisterUserSerializer, BookSerializer
 from rest_framework import viewsets
-from rest_framework import status
+from rest_framework import permissions
+from api.serializers import UserSerializer, GroupSerializer, RegisterUserSerializer, BookSerializer, ContactSerializer
+from rest_framework import viewsets
 from rest_framework.generics import RetrieveAPIView, CreateAPIView
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from .models import Book
+
+from .models import Book, Contact
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -40,13 +40,9 @@ class CreateBookAPIView(CreateAPIView):
     permission_classes = [permissions.AllowAny]
     serializer_class = BookSerializer
 
-@api_view(['POST'])
-def createBook(request):
-    print(request.data)
-    serializer = BookSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-    return Response(serializer.data)
+class CreateContactAPIView(CreateAPIView):
+    permission_classes = [permissions.AllowAny]
+    serializer_class = ContactSerializer
 
 @api_view(['GET'])
 def getBooks(request):
