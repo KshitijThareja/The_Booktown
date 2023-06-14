@@ -13,17 +13,18 @@ class Book(models.Model):
     primary=models.IntegerField(default=0)
     secondary=models.IntegerField(default=0)
     senior_secondary=models.IntegerField(default=0)
-
     def __str__(self):
         return self.full_name
+    
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     phone_no = models.IntegerField()
-    query= models.TextField()
+    query= models.TextField(max_length=600, default="Null")
+    type=models.CharField(max_length=100)
     ngo=models.CharField(max_length=100, default="Null")
-    website=models.CharField(max_length=100)
-    address = models.CharField(max_length=100)
+    website=models.CharField(max_length=100, default="Null")
+    address = models.CharField(max_length=100, default="Null")
     org=models.CharField(max_length=100, default="Null")
     def __str__(self):
-        return self.full_name
+        return self.name

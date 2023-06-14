@@ -4,8 +4,6 @@ import Link from "next/link";
 import AuthenticationContext from "@/context/AuthenticationContext";
 import Footer from "./footer";
 import axios from "axios";
-import { InputTwoTone } from "@mui/icons-material";
-// import { Dropdown } from "@nextui-org/react";
 
 const DonatePage = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +19,7 @@ const DonatePage = () => {
       num: "",
     },
   ]);
-  
+
   const addInputField = () => {
     setInputFields([
       ...inputFields,
@@ -31,54 +29,63 @@ const DonatePage = () => {
       },
     ]);
   };
+  console.log(inputFields);
   const removeInputFields = (index) => {
     const rows = [...inputFields];
     rows.splice(index, 1);
     setInputFields(rows);
   };
+  const newInputField = inputFields.map(p =>
+    p.value === 'Pre-Primary'
+      ? { ...p, desc: 'pre-primary' }
+      : p,
+  
+  );
   const handleChange = (index, evnt) => {
     const { name, value } = evnt.target;
     const list = [...inputFields];
     list[index][name] = value;
     setInputFields(list);
-  
   };
   // console.log(inputFields);
  
   var json = JSON.stringify(inputFields);
   console.log(json);
   var stringify = JSON.parse(json);
-for (var i = 0; i < stringify.length; i++) {
-  if(stringify[i]['category']=='Pre-Primary'){
-    //     // console.log('yes');
-        pre_primary=stringify[i]['num'];
-        console.log(pre_primary);
-      }
-      else if(stringify[i]['category']=='Primary'){
-        primary=stringify[i]['num'];
-        console.log(primary);
-      }
-      else if(stringify[i]['category']=='Secondary'){
-        secondary=stringify[i]['num'];
-        console.log(secondary);
-      }
-      else if(stringify[i]['category']=='Senior-Secondary'){
-        senior_secondary=stringify[i]['num'];
-        console.log(senior_secondary);
-      }
-}
+// for (var i = 0; i < stringify.length; i++) {
+//   if(stringify[i]['category']=='Pre-Primary'){
+//     //     // console.log('yes');
+//         pre_primary=stringify[i]['num'];
+//         console.log(pre_primary);
+//       }
+//       else if(stringify[i]['category']=='Primary'){
+//         primary=stringify[i]['num'];
+//         console.log(primary);
+//       }
+//       else if(stringify[i]['category']=='Secondary'){
+//         secondary=stringify[i]['num'];
+//         console.log(secondary);
+//       }
+//       else if(stringify[i]['category']=='Senior-Secondary'){
+//         senior_secondary=stringify[i]['num'];
+//         console.log(senior_secondary);
+//       }
+// }
   const { user } = useContext(AuthenticationContext);
   const a = user;
+
+  // for(let i=0; i<inputFields.length; i++){
+  //   if(inputFields[i].category=="Pre-Primary"){
+  //     inputFields[i].num=init_cat;
+  //     }
+  //   }
+  console.log(phone_no);
+  const inputFieldsArray = JSON.stringify(inputFields);
+  const savedInputFields = JSON.parse(inputFieldsArray);
+  console.log(savedInputFields);
+
   const DonationInfo = async () => {
-    // for(i=0;i<json.length; i++){
-    //   if(json[i].category=='Pre-Primary'){
-    //     // console.log('yes');
-    //     setPre_primary(json[i].num);
-    //   }
-    //   else if(json[i].category=='Primary'){
-    //     setPrimary(json[i].num);
-    //   }
-    // }
+
     let formField = new FormData();
     formField.append("email", email);
     formField.append("full_name", full_name);
@@ -87,20 +94,11 @@ for (var i = 0; i < stringify.length; i++) {
     formField.append("pin_code", pin_code);
     formField.append("no_of_books", no_of_books);
     formField.append("username", a.username);
-    formField.append("primary", primary);
-    formField.append("pre_primary", pre_primary);
-    formField.append("secondary", secondary);
-    formField.append("senior_secondary", senior_secondary);
-    // for(i=0;i<json.length; i++){
-    //   if(json[i].category=='Pre-Primary'){
-    //     console.log('yes');
-    //     formField.append("primary", json[i].num);
-    //   }
-    //   else if(json[i].category=='Primary'){
-    //     formField.append("pre_primary", json[i].num);
-    //   }
-    // }
-    
+    // formField.append("primary", primary);
+    // formField.append("pre_primary", pre_primary);
+    // formField.append("secondary", secondary);
+    // formField.append("senior_secondary", senior_secondary);
+
 
     await axios({
       method: "post",
@@ -127,12 +125,14 @@ for (var i = 0; i < stringify.length; i++) {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 place-items-center md:place-items-center">
-        <div className="sm:place-self-center">
+        <div className="sm:place-self-center align-self-center">
           <img
             className="rounded-2xl w-[21rem] h-[27rem] md:w-[38.25rem] md:h-[44.25rem]"
             alt=""
             src="/dab20razorpay20lead20photo-koznvw5y6htr2qjpeg@2x.png"
           />
+
+
         </div>
         {user ? (
           <div>
@@ -258,11 +258,11 @@ for (var i = 0; i < stringify.length; i++) {
                       value={username}
                     /> */}
                 </div>
-                <div className="container">
+                {/* <div className="container">
                   <div className="row">
                     <div className="col-sm-8">
                       {inputFields.map((data, index) => {
-                        const {category, num } = data;
+                        const { category, num } = data;
                         return (
                           <div className="row my-3" key={index}>
                             <div className="col">
@@ -294,15 +294,13 @@ for (var i = 0; i < stringify.length; i++) {
                               />
                             </div>
                             <div className="col">
-                              {inputFields.length !== 1 ? (
+                              {inputFields.length !== 1 && (
                                 <button
                                   className="btn btn-outline-danger"
-                                  onClick={removeInputFields}
+                                  onClick={() => removeInputFields(index)}
                                 >
                                   Remove
                                 </button>
-                              ) : (
-                                ""
                               )}
                             </div>
                           </div>
@@ -312,7 +310,7 @@ for (var i = 0; i < stringify.length; i++) {
                       <div className="row">
                         <div className="col-sm-12">
                           <button
-                            className="btn btn-outline-success "
+                            className="btn btn-outline-success"
                             onClick={addInputField}
                           >
                             Add New
@@ -320,9 +318,9 @@ for (var i = 0; i < stringify.length; i++) {
                         </div>
                       </div>
                     </div>
+                    <div className="col-sm-4"></div>
                   </div>
-                  <div className="col-sm-4"></div>
-                </div>
+                </div> */}
 
                 <div className=" items-center h-5">
                   <input
@@ -477,5 +475,7 @@ By using the book donation form, you acknowledge that you have read, understood,
       <Footer />
     </div>
   );
-};
+}
+
+
 export default DonatePage;

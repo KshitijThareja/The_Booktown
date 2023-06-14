@@ -25,7 +25,7 @@ const LandingPage = () => {
               A world of books at
               your fingertips.
             </p>
-            <p className="[border:none] bg-[transparent] font-montserrat-thin mt-6 mb-4 md:ml-2 text-[1.1rem] sm:text-[0.9rem] text-center md:mt-6 sm:text-start lg:text-[1.3rem]">
+            <p className="[border:none] bg-[transparent] text-gray-400 font-montserrat-thin mt-6 mb-4 md:ml-2 text-[1.1rem] sm:text-[0.9rem] text-center md:mt-3 sm:text-start lg:text-[1.3rem]">
               Welcome to our website, where you can
               give your gently used books a new life and help
               spread the joy of reading to others.
@@ -33,12 +33,12 @@ const LandingPage = () => {
           </div>
           <div className="md:mt-2 justify-self-center place-self-center sm:ml-2 sm:place-self-start">
             <Link href="/donate" passHref>
-              <button className=" px-6 py-3 sm:px-3 sm:py-2 md:px-4 md:py-2 lg:px-8 lg:py-3 bg-black text-white text-[0.9rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[0.9rem] font-semibold border border-black rounded cursor-pointer hover:bg-white hover:text-black hover:border-black mr-5">
+              <button className=" px-6 py-3 sm:px-3 sm:py-2 md:px-4 md:py-2 lg:px-8 lg:py-3 bg-black text-white text-[0.9rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[0.95rem] font-semibold border border-black rounded cursor-pointer hover:bg-white hover:text-black hover:border-black mr-5">
                 Donate Now
               </button>
             </Link>
             <Link href="/About" passHref>
-              <button className=" px-7 py-3 sm:px-3 sm:py-2 md:px-5 md:py-2 lg:px-9 lg:py-3  bg-darksalmon shadow-[0px_4px_4px_rgba(0,_0,_0,_0.1)] border border-darksalmon  text-white gap-[0.19rem] text-[0.9rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[0.9rem] font-semibold md:mt-4 rounded-md cursor-pointer hover:bg-white hover:text-darksalmon ">
+              <button className=" px-7 py-3 sm:px-3 sm:py-2 md:px-5 md:py-2 lg:px-9 lg:py-3  bg-darksalmon shadow-[0px_4px_4px_rgba(0,_0,_0,_0.1)] border border-darksalmon  text-white gap-[0.19rem] text-[0.9rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[0.95rem] font-semibold md:mt-4 rounded-md cursor-pointer hover:bg-white hover:text-darksalmon ">
                 Read More
               </button>
             </Link>
@@ -58,7 +58,7 @@ const LandingPage = () => {
             <h2 className="text-[1.8rem] justify-self-center text-center font-semibold mb-4 lg:text-start">
               ABOUT US
             </h2>
-            <p className="font-light text-[1rem] sm:text-[1.1rem] ml-2 mr-2 leading-[2rem] text-center lg:text-start text-gray-700">
+            <p className="font-medium text-[1rem] sm:text-[1.2rem] ml-2 mr-2 leading-[2rem] text-center lg:text-start text-gray-700">
               A dedicated team of volunteers who want to do their bit of good
               towards the society. It all started when we wanted to donate our
               old books. We wanted them to be of good use to someone, someone
@@ -76,8 +76,8 @@ const LandingPage = () => {
               Our motto: Har haath kitaab
             </p>
             <br />
-            <div className="text-[1rem] hidden sm:hidden lg:hidden sm:text-[1.1rem] justify-self-center text-start w-[20rem] sm:w-[30rem] ml-7 mr-2 lg:text-start text-gray-700">
-              <ul className="space-y-4">
+            {/* <div className="text-[1rem] hidden sm:hidden lg:hidden sm:text-[1.1rem] justify-self-center text-start w-[20rem] sm:w-[30rem] ml-7 mr-2 lg:text-start text-gray-700">
+              <ul className="space-y-4 font-medium ">
                 <li>To be accessible to every individual who needs books.</li>
                 <li>
                   To collect books from as many people as possible and give them
@@ -92,9 +92,9 @@ const LandingPage = () => {
                   encourage people to lend a helping hand to the needy.
                 </li>
               </ul>
-            </div>
-            <div className="text-[1rem] sm:visible lg:visible sm:text-[1.1rem] justify-self-center text-start ml-7 mr-2 lg:text-start text-gray-700">
-              <ul className="space-y-4">
+            </div> */}
+            <div className="text-[1rem] font-medium sm:visible lg:visible sm:text-[1.1rem] justify-self-center text-start ml-2 lg:text-start text-gray-700">
+              <ul className="space-y-4 list-disc">
                 <li>To be accessible to every individual who needs books.</li>
                 <li>
                   To collect books from as many people as possible and give them
@@ -120,17 +120,17 @@ const LandingPage = () => {
         </div>
         <div className="grid grid-cols-1 gap-y-7 md:gap-x-10 mt-8 md:grid-cols-1 lg:grid-cols-3">
           <div className="text-center font-bold text-[1.7rem] md:text-[2rem] lg:mr-9">
-            <div className="rounded-xl bg-white shadow-[0px_4px_20px_2px_rgba(0,_0,_0,_0.25)] mt-6 w-[20.88rem] h-[26.63rem] md:w-[25.88rem] md:h-[33.66rem]">
+            <div className="rounded-xl bg-white shadow-[0px_4px_20px_2px_rgba(0,_0,_0,_0.25)] mt-6 w-[20.88rem] h-[28.63rem] md:w-[25.88rem] md:h-[34.9rem]">
               <img
                 className="rounded-t-xl rounded-b-none w-[21rem] h-[19.5rem] md:w-[26rem] md:h-[24.5rem] object-fit"
                 alt=""
                 src="/image-1@2x.png"
               />
               <div className="inline-block">
-                <p className="[margin-block-start:0] [margin-block-end:14px] font-medium">
+                <p className=" text-[1.8rem] font-medium">
                   Collection
                 </p>
-                <p className="m-2 text-[1rem] md:text-[1.3rem] font-light text-gray-700">
+                <p className="text-[1rem] ml-3 mr-3 md:text-[1.2rem] font-light text-gray-700">
                   We collect used/new books from individuals, schools,
                   corporates, etc who are willing to support the cause.
                 </p>
@@ -138,24 +138,24 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="text-center font-bold text-[1.7rem] md:text-[2rem] lg:mr-9">
-            <div className="rounded-xl bg-white shadow-[0px_4px_20px_2px_rgba(0,_0,_0,_0.25)] mt-6 w-[20.88rem] h-[26.63rem] md:w-[25.88rem] md:h-[33.66rem]">
+            <div className="rounded-xl bg-white shadow-[0px_4px_20px_2px_rgba(0,_0,_0,_0.25)] mt-6 w-[20.88rem] h-[28.63rem] md:w-[25.88rem] md:h-[34.9rem]">
               <img
                 className="rounded-t-xl rounded-b-none mt-[0.55rem] mb-2 w-[20rem] h-[18.5rem] md:w-[24.55rem] md:h-[23.1rem] drop-shadow-md object-fit"
                 alt=""
                 src="/image-2@2x.png"
               />
               <div className="inline-block">
-                <p className="[margin-block-start:0] [margin-block-end:14px] font-medium">
+                <p className="[margin-block-start:7px] text-[1.8rem] font-medium">
                   Sorting
                 </p>
-                <p className="m-2 text-[1rem] md:text-[1.3rem] font-light text-gray-700">
+                <p className="text-[1rem] md:text-[1.2rem] ml-3 mr-3 font-light text-gray-700">
                   Recycling those that are worn out/torn/not in good shape.
                 </p>
               </div>
             </div>
           </div>
-          <div className="text-center font-bold text-[1.7rem] md:text-[2rem]">
-            <div className="rounded-xl bg-white shadow-[0px_4px_20px_2px_rgba(0,_0,_0,_0.25)] mt-6 w-[20.88rem] h-[26.63rem] md:w-[25.88rem] md:h-[33.66rem]">
+          <div className="text-center font-bold text-[1.7rem] md:text-[2rem] mb-3">
+            <div className="rounded-xl bg-white shadow-[0px_4px_20px_2px_rgba(0,_0,_0,_0.25)] mt-6 w-[20.88rem] h-[28.63rem] md:w-[25.88rem] md:h-[34.9rem]">
               <img
                 className="rounded-t-xl rounded-b-none w-[21rem] h-[19.5rem] md:w-[26rem] md:h-[24.5rem] object-fit"
                 alt=""
@@ -163,10 +163,10 @@ const LandingPage = () => {
               />
               <div className="inline-block">
                 
-                <p className="[margin-block-start:0] [margin-block-end:14px] font-medium">
+                <p className="text-[1.8rem] font-medium">
                   Distribution
                 </p>
-                <p className="m-2 text-[1rem] md:text-[1.3rem] lg:text-[1.3rem] font-light text-gray-700">
+                <p className="text-[1rem] md:text-[1.2rem] ml-3 mr-3 font-light text-gray-700">
                   We distribute books via book stalls at govt. schools. We also
                   provide books to credible NGOs in education domain.
                 </p>
