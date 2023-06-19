@@ -43,3 +43,9 @@ class CreateBookAPIView(CreateAPIView):
 class CreateContactAPIView(CreateAPIView):
     permission_classes = [permissions.AllowAny]
     serializer_class = ContactSerializer
+
+@api_view(['GET'])
+def getBooks(request):
+    books = Book.objects.all()
+    serializer = BookSerializer(books, many=True)
+    return Response(serializer.data)
