@@ -25,7 +25,7 @@ const Contact = () => {
     [selected]
   );
   console.log(selectedValue);
-  
+
   const DonationInfo = async () => {
    
     let formField = new FormData();
@@ -55,22 +55,17 @@ const Contact = () => {
     <div>
     <form>
             <div className="grid grid-cols-1 gap-6 mt-4 sm:place-items-center justify-items-center py-6 md:justify-self-end md:mt-20 ">
-              <div className="text-center h-[3rem] md:mb-10 justify-self-center sm:justify-self-center md:text-center md:ml-3 ">
-                {/* <h2 className="text-black text-[1.5rem] md:text-[2rem]">
-                    Donate a book to Booktown Foundation
-                  </h2> */}
-              </div>
-              <div className="text-center h-[3rem] justify-self-center sm:justify-self-center md:text-center md:ml-3">
-                <h3 className="text-black text-[1.8rem]">
+              <div className="text-center h-[3rem] mt-12 md:mt-2 justify-self-center sm:justify-self-center md:text-center md:ml-3 mb-3">
+                <h3 className="text-black text-[2rem]">
                   Reach Out to us
                 </h3>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20">
-                <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 divide-x-8 justify-items-center gap-x-40">
+                <div className="justify-content-center">
               <div className="w-[20rem] md:w-[20rem]">
                 <label
                   htmlFor="first_name"
-                  className="block mb-2 text-sm font-medium text-gray-900 mt-1 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 mt-1"
                 >
                   Full name
                 </label>
@@ -120,9 +115,9 @@ const Contact = () => {
                 />
               </div>
               
-              <div className="w-[20rem] md:w-[20rem]">
+              <div className="ml-20">
                 <Dropdown>
-                  <Dropdown.Button flat css={{ tt: "capitalize"}}>
+                  <Dropdown.Button flat css={{ tt: "capitalize"}} className="bg-white ring-2 text-[0.95rem] ring-darksalmon text-darksalmon px-9 py-2.5">
                     {selectedValue}
                   </Dropdown.Button>
                   <Dropdown.Menu
@@ -134,15 +129,25 @@ const Contact = () => {
                     selectedKeys={selected}
                     onSelectionChange={setSelected}
                   >
-                    <Dropdown.Item key="select type" >Select type</Dropdown.Item>
-                    <Dropdown.Item key="individual" withDivider>Individual</Dropdown.Item>
-                    <Dropdown.Item key="business">Business</Dropdown.Item>
-                    <Dropdown.Item key="NGO">NGO</Dropdown.Item>
+                    <Dropdown.Item key="select type" className="text-darksalmon  hover:bg-white focus:ring-darksalmon focus:ring-0 focus:bg-white" >Select type</Dropdown.Item>
+                    <Dropdown.Item className="hover:bg-darksalmon text-black hover:text-white focus:text-white focus:ring-0 focus:bg-darksalmon" key="individual" withDivider>Individual</Dropdown.Item>
+                    <Dropdown.Item className="hover:bg-darksalmon text-black hover:text-white focus:text-white focus:ring-0 focus:bg-darksalmon" key="business">Business</Dropdown.Item>
+                    <Dropdown.Item className="hover:bg-darksalmon text-black hover:text-white focus:text-white focus:ring-0 focus:bg-darksalmon" key="NGO">NGO</Dropdown.Item>
 
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
+              <div className=" invisible md:visible justify-self-center ml-9">
+                <button
+                  type="submit"
+                  className="text-white bg-darksalmon hover:bg-white ml-14 mb-5 md:ml-15 hover:text-darksalmon border-darksalmon mt-5 font-medium rounded-lg text-sm  px-9 py-2.5 text-center text-[1rem]"
+                  onClick={DonationInfo}
+                >
+                  Submit
+                </button>
               </div>
+              </div>
+          
               <div>
                 {selectedValue=="NGO" ? (
                 
@@ -292,6 +297,15 @@ const Contact = () => {
                   onChange={(e) => setQuery(e.target.value)}
                   value={query}
                 />
+                <div className="justify-self-center">
+                <button
+                  type="submit"
+                  className="text-white bg-darksalmon hover:bg-white  mb-5  hover:text-darksalmon border-darksalmon mt-5 font-medium rounded-lg text-sm  px-9 py-2.5 text-center text-[1rem]"
+                  onClick={DonationInfo}
+                >
+                  Submit
+                </button>
+              </div>
 
               </div>
               </div>
@@ -315,31 +329,39 @@ const Contact = () => {
                   onChange={(e) => setQuery(e.target.value)}
                   value={query}
                 />
-
-              </div>
-              </div>
-              ): null}
-              </div>
-
-              </div>
-              <div className="">
+                <div className="justify-self-center">
                 <button
                   type="submit"
-                  className="text-white bg-darksalmon hover:bg-white hover:text-darksalmon border-darksalmon font-medium rounded-lg text-sm w-full sm:w-auto px-9 py-2.5 text-center text-[1rem]"
+                  className="text-white bg-darksalmon hover:bg-white  mb-5  hover:text-darksalmon border-darksalmon mt-5 font-medium rounded-lg text-sm  px-9 py-2.5 text-center text-[1rem]"
                   onClick={DonationInfo}
                 >
                   Submit
                 </button>
               </div>
+              </div>
+              </div>
+              ): null}
+              </div>
+              <div className=" md:hidden justify-self-center">
+                <button
+                  type="submit"
+                  className="text-white bg-darksalmon hover:bg-white  mb-5  hover:text-darksalmon border-darksalmon mt-5 font-medium rounded-lg text-sm  px-9 py-2.5 text-center text-[1rem]"
+                  onClick={DonationInfo}
+                >
+                  Submit
+                </button>
+              </div>
+              </div>
+              
             </div>
             
           </form>
     </div>
-      <div className="grid grid-cols-1 mt-20 justify-items-center sm:grid-cols-3 md:grid-cols-3 gap-y-6 ">
+      <div className="grid grid-cols-1 mt-6 justify-items-center sm:grid-cols-3 md:grid-cols-3 gap-y-6 ">
         <div className="grid grid-cols-2 justify-items-center sm:grid-cols-1">
           <div className="w-[3rem] place-self-center">
             <img
-              className="rounded-2xl w-[4.25rem] align-self-center h-[6rem]"
+              className="rounded-2xl w-[4.25rem] align-self-center h-[8.5rem]"
               alt=""
               src="/frame10.svg"
             />
@@ -351,24 +373,24 @@ const Contact = () => {
         <div className="grid grid-cols-2 justify-items-center sm:grid-cols-1">
           <div className="w-[3rem] place-self-center">
             <img
-              className="rounded-2xl w-[4.25rem] align-self-center h-[6rem]"
+              className="rounded-2xl w-[4.25rem] align-self-center h-[3rem]"
               alt=""
               src="/frame11.svg"
             />
           </div>
-          <div className="w-[8rem] text-center place-self-center">
+          <div className="w-[8rem] text-center place-self-start">
             <p>+91 95464XXXXX</p>
           </div>
         </div>
         <div className="grid grid-cols-2 justify-items-center sm:grid-cols-1">
           <div className="w-[3rem] place-self-center">
             <img
-              className="rounded-2xl w-[4.25rem] align-self-center h-[6rem]"
+              className="rounded-2xl w-[4.25rem] align-self-center h-[3.8rem]"
               alt=""
               src="/frame12.svg"
             />
           </div>
-          <div className="w-[8.5rem] text-center place-self-center">
+          <div className="w-[8.5rem] text-center place-self-start">
             <p>
               info@booktown
               <br />

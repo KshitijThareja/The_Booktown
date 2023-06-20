@@ -26,8 +26,9 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = '__all__' 
+        fields = ['full_name', 'email', 'phone_no', 'address', 'pin_code', 'no_of_books', 'username', 'pre_primary', 'primary', 'secondary', 'senior_secondary']
+
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
-        fields = '__all__' 
+        fields = '__all__'

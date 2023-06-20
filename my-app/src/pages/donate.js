@@ -4,22 +4,26 @@ import Link from "next/link";
 import AuthenticationContext from "@/context/AuthenticationContext";
 import Footer from "./footer";
 import axios from "axios";
+import { InputTwoTone } from "@mui/icons-material";
+// import { Dropdown } from "@nextui-org/react";
 
 const DonatePage = () => {
   const [email, setEmail] = useState("");
   const [full_name, setFull_name] = useState("");
   const [phone_no, setPhone_no] = useState("");
+  const [city, setCity] = useState("");
   const [no_of_books, setNo_of_books] = useState("");
   const [address, setAddress] = useState("");
   const [pin_code, setPin_code] = useState("");
   const [showModal, setShowModal] = useState(false);
+    const [formValues, setFormValues] = useState([{ type: "", quantity: 0 }])
   const [inputFields, setInputFields] = useState([
     {
       category: "",
       num: "",
     },
   ]);
-
+  
   const addInputField = () => {
     setInputFields([
       ...inputFields,
@@ -29,63 +33,121 @@ const DonatePage = () => {
       },
     ]);
   };
-  console.log(inputFields);
   const removeInputFields = (index) => {
     const rows = [...inputFields];
     rows.splice(index, 1);
     setInputFields(rows);
   };
-  const newInputField = inputFields.map(p =>
-    p.value === 'Pre-Primary'
-      ? { ...p, desc: 'pre-primary' }
-      : p,
-  
-  );
   const handleChange = (index, evnt) => {
     const { name, value } = evnt.target;
     const list = [...inputFields];
     list[index][name] = value;
     setInputFields(list);
+  
   };
   // console.log(inputFields);
- 
+ let dataValue={
+    pre_primary:0,
+    primary:0,
+    secondary:0,
+    senior_secondary:0
+ }
   var json = JSON.stringify(inputFields);
   console.log(json);
   var stringify = JSON.parse(json);
-// for (var i = 0; i < stringify.length; i++) {
-//   if(stringify[i]['category']=='Pre-Primary'){
-//     //     // console.log('yes');
-//         pre_primary=stringify[i]['num'];
-//         console.log(pre_primary);
-//       }
-//       else if(stringify[i]['category']=='Primary'){
-//         primary=stringify[i]['num'];
-//         console.log(primary);
-//       }
-//       else if(stringify[i]['category']=='Secondary'){
-//         secondary=stringify[i]['num'];
-//         console.log(secondary);
-//       }
-//       else if(stringify[i]['category']=='Senior-Secondary'){
-//         senior_secondary=stringify[i]['num'];
-//         console.log(senior_secondary);
-//       }
-// }
+for (var i = 0; i < stringify.length; i++) {
+  if(stringify[i]['category']=='Pre-Primary'){
+    //     // console.log('yes');
+        pre_primary=stringify[i]['num'];
+        console.log(pre_primary);
+      }
+      else if(stringify[i]['category']=='Primary'){
+        primary=stringify[i]['num'];
+        console.log(primary);
+      }
+      else if(stringify[i]['category']=='Secondary'){
+        secondary=stringify[i]['num'];
+        console.log(secondary);
+      }
+      else if(stringify[i]['category']=='Senior-Secondary'){
+        senior_secondary=stringify[i]['num'];
+        console.log(senior_secondary);
+      }
+}
   const { user } = useContext(AuthenticationContext);
   const a = user;
+    const handleTypes = (i, e) => {
+        let data = [...formValues];
+        data[i][e.target.name] = e.target.value;
+        setFormValues(data);
+        console.log(formValues)
+    }
 
-  // for(let i=0; i<inputFields.length; i++){
-  //   if(inputFields[i].category=="Pre-Primary"){
-  //     inputFields[i].num=init_cat;
-  //     }
-  //   }
-  console.log(phone_no);
-  const inputFieldsArray = JSON.stringify(inputFields);
-  const savedInputFields = JSON.parse(inputFieldsArray);
-  console.log(savedInputFields);
+    let addFormFields = () => {
+        setFormValues([...formValues, { type: "", quantity: 0}]);
+    }
+    let removeFormFields = (i) => {
+        let newFormValues = [...formValues];
+        newFormValues.splice(i, 1);
+        setFormValues(newFormValues)
+    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(e.target).entries());
+        let books=null
+        if (formValues[0].type === "" || formValues[0].quantity === 0) {
+            books = null;
+        }
+        else {
+            for(let i=0;i<formValues.length;i++) {
+            if(formValues[i].type==="Pre-Primary") {
+                dataValue['pre_primary'] = formValues[i].quantity
+            }
+            else if(formValues[i].type==="Primary"){
+                dataValue['primary'] = formValues[i].quantity
+            }
+            else if(formValues[i].type==="Secondary"){
+                dataValue['secondary'] = formValues[i].quantity
+            }
+            else if(formValues[i].type==="Senior-Secondary"){
+                dataValue['senior_secondary'] = formValues[i].quantity
+            }
+            }
+        }
+        const bodyObject={
+            full_name:data.full_name,
+            email:data.email,
+            phone_no:data.phone,
+            address:data.address,
+            pin_code:data.pin_code,
+            no_of_books:data.n_books,
+            username:a.username,
+            pre_primary:Number(dataValue['pre_primary']),
+            primary:Number(dataValue['primary']),
+            secondary:Number(dataValue['secondary']),
+            senior_secondary:Number(dataValue['senior_secondary'])
 
-  const DonationInfo = async () => {
-
+        }
+        const response = await fetch('http://127.0.0.1:8000/api/book', {
+            method: 'POST',
+            body: JSON.stringify(bodyObject),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const result = await response.json();
+        console.log(result);
+   }
+    const DonationInfo = async () => {
+    // for(i=0;i<json.length; i++){
+    //   if(json[i].category=='Pre-Primary'){
+    //     // console.log('yes');
+    //     setPre_primary(json[i].num);
+    //   }
+    //   else if(json[i].category=='Primary'){
+    //     setPrimary(json[i].num);
+    //   }
+    // }
     let formField = new FormData();
     formField.append("email", email);
     formField.append("full_name", full_name);
@@ -94,11 +156,20 @@ const DonatePage = () => {
     formField.append("pin_code", pin_code);
     formField.append("no_of_books", no_of_books);
     formField.append("username", a.username);
-    // formField.append("primary", primary);
-    // formField.append("pre_primary", pre_primary);
-    // formField.append("secondary", secondary);
-    // formField.append("senior_secondary", senior_secondary);
-
+    formField.append("primary", primary);
+    formField.append("pre_primary", pre_primary);
+    formField.append("secondary", secondary);
+    formField.append("senior_secondary", senior_secondary);
+    // for(i=0;i<json.length; i++){
+    //   if(json[i].category=='Pre-Primary'){
+    //     console.log('yes');
+    //     formField.append("primary", json[i].num);
+    //   }
+    //   else if(json[i].category=='Primary'){
+    //     formField.append("pre_primary", json[i].num);
+    //   }
+    // }
+    
 
     await axios({
       method: "post",
@@ -125,18 +196,16 @@ const DonatePage = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 place-items-center md:place-items-center">
-        <div className="sm:place-self-center align-self-center">
+        <div className="sm:place-self-center">
           <img
             className="rounded-2xl w-[21rem] h-[27rem] md:w-[38.25rem] md:h-[44.25rem]"
             alt=""
             src="/dab20razorpay20lead20photo-koznvw5y6htr2qjpeg@2x.png"
           />
-
-
         </div>
         {user ? (
           <div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 gap-6 mt-4 sm:place-items-center justify-items-center py-6 md:justify-self-end md:mt-20 md:ml-20">
                 <div className="text-center h-[3rem] md:mb-10 justify-self-center sm:justify-self-center md:text-center md:ml-3 ">
                   <h2 className="text-black text-[1.5rem] md:text-[2rem]">
@@ -150,18 +219,17 @@ const DonatePage = () => {
                 </div>
                 <div className="w-[20rem] md:w-[20rem]">
                   <label
-                    htmlFor="first_name"
+                    htmlFor="full_name"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Full name
                   </label>
                   <input
                     type="text"
-                    id="first_name"
+                    id="full_name"
+                    name="full_name"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                     placeholder="Enter full name "
-                    onChange={(e) => setFull_name(e.target.value)}
-                    value={full_name}
                   />
                 </div>
 
@@ -175,11 +243,10 @@ const DonatePage = () => {
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                     placeholder="Enter your phone number"
                     required
-                    onChange={(e) => setPhone_no(e.target.value)}
-                    value={phone_no}
                   />
                 </div>
 
@@ -193,11 +260,10 @@ const DonatePage = () => {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                     placeholder="Email address"
                     required
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
                   />
                 </div>
                 <div className="w-[20rem] md:w-[20rem]">
@@ -213,25 +279,39 @@ const DonatePage = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                     placeholder="Address"
                     required
-                    onChange={(e) => setAddress(e.target.value)}
-                    value={address}
+                    name="address"
                   />
                 </div>
                 <div className="w-[20rem] md:w-[20rem]">
                   <label
-                    for="pincode"
+                    for="city"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    City
+                  </label>
+                  <input
+                    type="text"
+                    id="city"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
+                    placeholder="City"
+                    name="city"
+                    required
+                  />
+                </div>
+                <div className="w-[20rem] md:w-[20rem]">
+                  <label
+                    for="pin_code"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Pincode
                   </label>
                   <input
                     type="text"
-                    id="pincode"
+                    id="pin_code"
+                    name="pin_code"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                     placeholder="Area pincode"
                     required
-                    onChange={(e) => setPin_code(e.target.value)}
-                    value={pin_code}
                   />
                 </div>
                 <div className="w-[20rem] md:w-[20rem]">
@@ -247,8 +327,7 @@ const DonatePage = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
                     placeholder="Number of books"
                     required
-                    onChange={(e) => setNo_of_books(e.target.value)}
-                    value={no_of_books}
+                    name="n_books"
                   />
                   {/* <input
                       type="hidden"
@@ -258,69 +337,43 @@ const DonatePage = () => {
                       value={username}
                     /> */}
                 </div>
-                {/* <div className="container">
+                <div className="container">
                   <div className="row">
                     <div className="col-sm-8">
-                      {inputFields.map((data, index) => {
-                        const { category, num } = data;
-                        return (
-                          <div className="row my-3" key={index}>
-                            <div className="col">
-                              <div className="form-group">
-                                <select
-                                  alignRight
-                                  title="Dropdown right"
-                                  id="dropdown-menu-align-right"
-                                  onChange={(evnt) => handleChange(index, evnt)}
-                                  value={category}
-                                  name="category"
-                                  className="form-control"
-                                >
-                                  <option>Pre-Primary</option>
-                                  <option>Primary</option>
-                                  <option>Secondary</option>
-                                  <option>Senior-Secondary</option>
-                                </select>
-                              </div>
+                        {formValues.map((element, index) => (
+                            <div className="flex flex-wrap -mx-3 mb-6" key={index}>
+                                <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
+                                    <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5" name="type" id="type" defaultValue={"Select Type"} onChange={e => handleTypes(index, e)}>
+                                        <option disabled>Select Type</option>
+                                        <option>Pre-Primary</option>
+                                        <option>Primary</option>
+                                        <option>Secondary</option>
+                                        <option>Senior-Secondary</option>
+                                    </select>
+                                </div>
+                                <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
+                                    <input title="Enter valid student Email-id" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 " name="quantity" id="quantity" type="Number" placeholder="Quantity" onChange={e => handleTypes(index, e)} />
+                                </div>
+                                {index ?
+                                    <button type="button" className="button remove py-2 px-2 text-white bg-primary rounded-lg font-base" onClick={() => removeFormFields(index)}>Remove</button>
+                                    : null}
                             </div>
-                            <div className="col">
-                              <input
-                                type="text"
-                                onChange={(evnt) => handleChange(index, evnt)}
-                                value={num}
-                                name="num"
-                                className="form-control"
-                                placeholder="Number of books"
-                              />
-                            </div>
-                            <div className="col">
-                              {inputFields.length !== 1 && (
-                                <button
-                                  className="btn btn-outline-danger"
-                                  onClick={() => removeInputFields(index)}
-                                >
-                                  Remove
-                                </button>
-                              )}
-                            </div>
-                          </div>
-                        );
-                      })}
+                        ))}
 
                       <div className="row">
                         <div className="col-sm-12">
                           <button
-                            className="btn btn-outline-success"
-                            onClick={addInputField}
+                            className="btn btn-outline-success "
+                            onClick={() => addFormFields()}
                           >
                             Add New
                           </button>
                         </div>
                       </div>
                     </div>
-                    <div className="col-sm-4"></div>
                   </div>
-                </div> */}
+                  <div className="col-sm-4"></div>
+                </div>
 
                 <div className=" items-center h-5">
                   <input
@@ -347,7 +400,7 @@ const DonatePage = () => {
                   {showModal ? (
         <>
           <div
-            className="justify-self-center items-center place-self-center mt-40 h-[30rem] md:mt-20 md:h-[43rem] overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+            className="justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               {/*content*/}
@@ -368,47 +421,47 @@ const DonatePage = () => {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="my-1 text-slate-500 text-lg leading-relaxed">
-                  <span className="font-bold text-black">Please read these Terms and Conditions carefully before using the book donation form on our website.</span><br/><br/>
+                  <p className="my-4 text-slate-500 text-lg leading-relaxed">
+                  Please read these Terms and Conditions carefully before using the book donation form on our website.<br/>
 
-<span className="font-semibold ">Acceptance of Terms and Conditions</span><br/>
-By accessing or using the book donation form on our website, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not proceed with the donation process.<br/><br/>
+Acceptance of Terms and Conditions<br/>
+By accessing or using the book donation form on our website, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not proceed with the donation process.<br/>
 
-<span className="font-semibold ">Book Donation Eligibility</span><br/>
+Book Donation Eligibility<br/>
 2.1 The book donation form is intended for individuals or organizations who wish to donate books.<br/>
-2.2 By submitting the donation form, you confirm that you are the legal owner of the books or have obtained the necessary permissions to donate them.<br/><br/>
+2.2 By submitting the donation form, you confirm that you are the legal owner of the books or have obtained the necessary permissions to donate them.<br/>
 
-<span className="font-semibold ">Book Donation Process</span><br/>
+Book Donation Process<br/>
 3.1 Complete and submit the book donation form with accurate and up-to-date information.<br/>
 3.2 Once you submit the form, you grant us the right to review the details provided and accept or decline the donation at our discretion.<br/>
-3.3 We reserve the right to refuse any book donation without providing a reason for the refusal.<br/><br/>
+3.3 We reserve the right to refuse any book donation without providing a reason for the refusal.<br/>
 
-<span className="font-semibold ">Book Condition</span><br/>
+Book Condition<br/>
 4.1 By donating books, you confirm that the books are in good condition, free from excessive damage, mold, or other issues that may render them unfit for use.<br/>
 4.2 We reserve the right to inspect the donated books upon receipt and determine their suitability for our purposes.<br/>
-4.3 Books that do not meet our criteria may be declined or disposed of at our discretion.<br/><br/>
+4.3 Books that do not meet our criteria may be declined or disposed of at our discretion.<br/>
 
-<span className="font-semibold ">Ownership and Rights</span><br/>
+Ownership and Rights<br/>
 5.1 By donating books, you transfer ownership of the donated books to us.<br/>
 5.2 We reserve the right to retain, sell, or dispose of the donated books as we see fit.<br/>
-5.3 We may use the donated books for our own purposes, including but not limited to resale, distribution, or charitable activities.<br/><br/>
+5.3 We may use the donated books for our own purposes, including but not limited to resale, distribution, or charitable activities.<br/>
 
-<span className="font-semibold ">Personal Information</span><br/>
+Personal Information<br/>
 6.1 By submitting the book donation form, you agree to provide accurate and complete personal information.<br/>
-6.2 We will handle your personal information in accordance with our Privacy Policy, which is available on our website.<br/><br/>
+6.2 We will handle your personal information in accordance with our Privacy Policy, which is available on our website.<br/>
 
-<span className="font-semibold ">Liability</span><br/>
+Liability<br/>
 7.1 We make no guarantees or warranties regarding the suitability, quality, or condition of the donated books.<br/>
 7.2 We shall not be held liable for any loss, damage, or injury arising from the donation, use, or handling of the donated books.<br/>
-7.3 You agree to indemnify and hold us harmless from any claims, costs, or damages arising from your donation or breach of these Terms and Conditions.<br/><br/>
+7.3 You agree to indemnify and hold us harmless from any claims, costs, or damages arising from your donation or breach of these Terms and Conditions.<br/>
 
-<span className="font-semibold ">Modifications and Termination</span><br/>
+Modifications and Termination<br/>
 8.1 We reserve the right to modify or terminate the book donation form or these Terms and Conditions at any time without prior notice.<br/>
 8.2 It is your responsibility to review the Terms and Conditions periodically for any changes.<br/>
-8.3 Continued use of the book donation form after any modifications indicates your acceptance of the updated Terms and Conditions.<br/><br/>
+8.3 Continued use of the book donation form after any modifications indicates your acceptance of the updated Terms and Conditions.<br/>
 
-<span className="font-semibold ">Governing Law</span><br/>
-These Terms and Conditions shall be governed by and construed in accordance with the laws of Jurisdiction. Any disputes arising under or in connection with these Terms and Conditions shall be subject to the exclusive jurisdiction of the courts of Jurisdiction.<br/><br/>
+Governing Law<br/>
+These Terms and Conditions shall be governed by and construed in accordance with the laws of [Jurisdiction]. Any disputes arising under or in connection with these Terms and Conditions shall be subject to the exclusive jurisdiction of the courts of [Jurisdiction].<br/>
 
 By using the book donation form, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.
                   </p>
@@ -437,7 +490,6 @@ By using the book donation form, you acknowledge that you have read, understood,
                   <button
                     type="submit"
                     className="text-white bg-darksalmon hover:bg-white hover:text-darksalmon border-darksalmon font-medium rounded-lg text-sm w-full sm:w-auto px-9 py-2.5 text-center text-[1rem]"
-                    onClick={DonationInfo}
                   >
                     Submit
                   </button>
@@ -475,7 +527,5 @@ By using the book donation form, you acknowledge that you have read, understood,
       <Footer />
     </div>
   );
-}
-
-
+};
 export default DonatePage;

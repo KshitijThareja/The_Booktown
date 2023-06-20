@@ -7,7 +7,7 @@ from api.serializers import UserSerializer, GroupSerializer, RegisterUserSeriali
 from rest_framework import viewsets
 from rest_framework.generics import RetrieveAPIView, CreateAPIView
 from rest_framework.response import Response
-
+from rest_framework.decorators import api_view
 from .models import Book, Contact
 
 
@@ -43,3 +43,9 @@ class CreateBookAPIView(CreateAPIView):
 class CreateContactAPIView(CreateAPIView):
     permission_classes = [permissions.AllowAny]
     serializer_class = ContactSerializer
+
+@api_view(['GET'])
+def getBooks(request):
+    books = Book.objects.all()
+    serializer = BookSerializer(books, many=True)
+    return Response(serializer.data)
