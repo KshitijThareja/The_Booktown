@@ -24,27 +24,27 @@ const DonatePage = () => {
     },
   ]);
   
-  const addInputField = () => {
-    setInputFields([
-      ...inputFields,
-      {
-        category: "",
-        num: "",
-      },
-    ]);
-  };
-  const removeInputFields = (index) => {
-    const rows = [...inputFields];
-    rows.splice(index, 1);
-    setInputFields(rows);
-  };
-  const handleChange = (index, evnt) => {
-    const { name, value } = evnt.target;
-    const list = [...inputFields];
-    list[index][name] = value;
-    setInputFields(list);
+  // const addInputField = () => {
+  //   setInputFields([
+  //     ...inputFields,
+  //     {
+  //       category: "",
+  //       num: "",
+  //     },
+  //   ]);
+  // };
+  // const removeInputFields = (index) => {
+  //   const rows = [...inputFields];
+  //   rows.splice(index, 1);
+  //   setInputFields(rows);
+  // };
+  // const handleChange = (index, evnt) => {
+  //   const { name, value } = evnt.target;
+  //   const list = [...inputFields];
+  //   list[index][name] = value;
+  //   setInputFields(list);
   
-  };
+  // };
   // console.log(inputFields);
  let dataValue={
     pre_primary:0,
@@ -337,41 +337,41 @@ for (var i = 0; i < stringify.length; i++) {
                       value={username}
                     /> */}
                 </div>
-                <div className="container">
-                  <div className="row">
-                    <div className="col-sm-8">
+             
+                    <div className="col-sm-12">
                         {formValues.map((element, index) => (
-                            <div className="flex flex-wrap -mx-3 mb-6" key={index}>
-                                <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
+                            <div className=" mb-6" key={index}>
+                                <div className="w-[21.4rem] place-self-end md:w-1/1 px-3 mb-6 ">
                                     <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5" name="type" id="type" defaultValue={"Select Type"} onChange={e => handleTypes(index, e)}>
                                         <option disabled>Select Type</option>
-                                        <option>Pre-Primary</option>
+                                        <option className="hover:bg-darksalmon text-black hover:text-white focus:text-white focus:ring-0 focus:bg-darksalmon">Pre-Primary</option>
                                         <option>Primary</option>
                                         <option>Secondary</option>
                                         <option>Senior-Secondary</option>
                                     </select>
                                 </div>
-                                <div className="w-full md:w-1/1 px-3 mb-6 md:mb-0">
-                                    <input title="Enter valid student Email-id" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 " name="quantity" id="quantity" type="Number" placeholder="Quantity" onChange={e => handleTypes(index, e)} />
+                                <div className="w-[21.4rem] md:w-1/1 px-3 mb-6 md:mb-0">
+                                    <input title="Quantity" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 " name="quantity" id="quantity" type="Number" placeholder="Quantity" onChange={e => handleTypes(index, e)} />
                                 </div>
+                                <div>
                                 {index ?
-                                    <button type="button" className="button remove py-2 px-2 text-white bg-primary rounded-lg font-base" onClick={() => removeFormFields(index)}>Remove</button>
-                                    : null}
+                                    <button type="button" className="ml-3 mt-3 text-darksalmon bg-white hover:bg-darksalmon hover:text-white border-darksalmon font-medium rounded-lg text-sm w-full sm:w-auto px-7 py-2 text-center text-[1rem]"
+                                    onClick={() => removeFormFields(index)}>Remove</button>
+                                    : null}</div>
                             </div>
                         ))}
 
                       <div className="row">
                         <div className="col-sm-12">
                           <button
-                            className="btn btn-outline-success "
+                          className="ml-3 text-darksalmon bg-white hover:bg-darksalmon hover:text-white border-darksalmon font-medium rounded-lg text-sm w-full sm:w-auto px-7 py-2 text-center text-[1rem]"
                             onClick={() => addFormFields()}
                           >
                             Add New
                           </button>
                         </div>
                       </div>
-                    </div>
-                  </div>
+                
                   <div className="col-sm-4"></div>
                 </div>
 

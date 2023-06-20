@@ -60,7 +60,7 @@ const Contact = () => {
                   Reach Out to us
                 </h3>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 divide-x-8 justify-items-center gap-x-40">
+              <div className="grid grid-cols-1 md:grid-cols-1 divide-x-8 justify-items-center gap-x-40">
                 <div className="justify-content-center">
               <div className="w-[20rem] md:w-[20rem]">
                 <label
@@ -115,7 +115,7 @@ const Contact = () => {
                 />
               </div>
               
-              <div className="ml-20">
+              <div className="ml-20 mr-5">
                 <Dropdown>
                   <Dropdown.Button flat css={{ tt: "capitalize"}} className="bg-white ring-2 text-[0.95rem] ring-darksalmon text-darksalmon px-9 py-2.5">
                     {selectedValue}
@@ -137,21 +137,13 @@ const Contact = () => {
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
-              <div className=" invisible md:visible justify-self-center ml-9">
-                <button
-                  type="submit"
-                  className="text-white bg-darksalmon hover:bg-white ml-14 mb-5 md:ml-15 hover:text-darksalmon border-darksalmon mt-5 font-medium rounded-lg text-sm  px-9 py-2.5 text-center text-[1rem]"
-                  onClick={DonationInfo}
-                >
-                  Submit
-                </button>
+              
               </div>
-              </div>
-          
+              
               <div>
                 {selectedValue=="NGO" ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 divide-x-8 justify-items-center gap-x-40 mt-7">
                 
-                <div>
                   <div className="w-[20rem] md:w-[20rem]">
                 <label
                   for="ngo"
@@ -170,10 +162,11 @@ const Contact = () => {
                 />
 
               </div>
+              
                   <div className="w-[20rem] md:w-[20rem]">
                 <label
                   for="address"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-3"
+                  className="block mb-2 mt-3 md:mt-0 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Address
                 </label>
@@ -185,23 +178,6 @@ const Contact = () => {
                   required
                   onChange={(e) => setAddress(e.target.value)}
                   value={address}
-                />
-
-              </div>
-              <div className="w-[20rem] md:w-[20rem]">
-                <label
-                  for="website"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-3"
-                >
-                  Website
-                </label>
-                <input
-                  type="text"
-                  id="website"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
-                  placeholder="Website url (optional)"
-                  onChange={(e) => setWebsite(e.target.value)}
-                  value={website}
                 />
 
               </div>
@@ -223,11 +199,34 @@ const Contact = () => {
                 />
 
               </div>
+              <div className="w-[20rem] md:w-[20rem]">
+                <label
+                  for="website"
+                  className="block mb-2 text-sm font-medium text-gray-900 justify-self-center dark:text-white mt-3"
+                >
+                  Website
+                </label>
+                <input
+                  type="text"
+                  id="website"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
+                  placeholder="Website url (optional)"
+                  onChange={(e) => setWebsite(e.target.value)}
+                  value={website}
+                />
+                <button
+                  type="submit"
+                  className="text-white bg-darksalmon hover:bg-white mb-5 ml-20 hover:text-darksalmon border-darksalmon mt-7 font-medium rounded-lg text-sm  px-10 py-2.5 text-center text-[1rem]"
+                  onClick={DonationInfo}
+                >
+                  Submit
+                </button>
+              </div>
               </div>
               ): null}
               {selectedValue=="business" ? (
-                
-                <div>
+                <div className="grid grid-cols-1 md:grid-cols-2 divide-x-8 justify-items-center gap-x-40 mt-7">
+              
                   <div className="w-[20rem] md:w-[20rem]">
                 <label
                   for="org"
@@ -249,7 +248,7 @@ const Contact = () => {
                   <div className="w-[20rem] md:w-[20rem]">
                 <label
                   for="address"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-3"
+                  className="block mb-2 mt-3 md:mt-0 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Address
                 </label>
@@ -261,23 +260,6 @@ const Contact = () => {
                   required
                   onChange={(e) => setAddress(e.target.value)}
                   value={address}
-                />
-
-              </div>
-              <div className="w-[20rem] md:w-[20rem]">
-                <label
-                  for="website"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-3"
-                >
-                  Website
-                </label>
-                <input
-                  type="text"
-                  id="website"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
-                  placeholder="Website url (optional)"
-                  onChange={(e) => setWebsite(e.target.value)}
-                  value={website}
                 />
 
               </div>
@@ -297,23 +279,41 @@ const Contact = () => {
                   onChange={(e) => setQuery(e.target.value)}
                   value={query}
                 />
-                <div className="justify-self-center">
+                
+                
+              </div>
+              <div className="w-[20rem] md:w-[20rem]">
+                <label
+                  for="website"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-3"
+                >
+                  Website
+                </label>
+                <input
+                  type="text"
+                  id="website"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-darksalmon focus:border-darksalmon hover:border-darksalmon block w-full p-2.5 "
+                  placeholder="Website url (optional)"
+                  onChange={(e) => setWebsite(e.target.value)}
+                  value={website}
+                />
                 <button
                   type="submit"
-                  className="text-white bg-darksalmon hover:bg-white  mb-5  hover:text-darksalmon border-darksalmon mt-5 font-medium rounded-lg text-sm  px-9 py-2.5 text-center text-[1rem]"
+                  className="text-white bg-darksalmon hover:bg-white ml-20 mb-5 hover:text-darksalmon border-darksalmon mt-7 font-medium rounded-lg text-sm  px-10 py-2.5 text-center text-[1rem]"
                   onClick={DonationInfo}
                 >
                   Submit
                 </button>
               </div>
+            
 
               </div>
-              </div>
+        
               ): null}
               {selectedValue=="individual" ? (
                 
                 <div>
-              <div className="w-[20rem] md:w-[20rem]">
+              <div className="w-[20rem] md:w-[20rem] mt-6">
                 <label
                   for="query"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -332,7 +332,7 @@ const Contact = () => {
                 <div className="justify-self-center">
                 <button
                   type="submit"
-                  className="text-white bg-darksalmon hover:bg-white  mb-5  hover:text-darksalmon border-darksalmon mt-5 font-medium rounded-lg text-sm  px-9 py-2.5 text-center text-[1rem]"
+                  className="text-white bg-darksalmon hover:bg-white mb-5 ml-20 hover:text-darksalmon border-darksalmon mt-7 font-medium rounded-lg text-sm  px-10 py-2.5 text-center text-[1rem]"
                   onClick={DonationInfo}
                 >
                   Submit
@@ -342,15 +342,7 @@ const Contact = () => {
               </div>
               ): null}
               </div>
-              <div className=" md:hidden justify-self-center">
-                <button
-                  type="submit"
-                  className="text-white bg-darksalmon hover:bg-white  mb-5  hover:text-darksalmon border-darksalmon mt-5 font-medium rounded-lg text-sm  px-9 py-2.5 text-center text-[1rem]"
-                  onClick={DonationInfo}
-                >
-                  Submit
-                </button>
-              </div>
+              
               </div>
               
             </div>
