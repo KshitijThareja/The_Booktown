@@ -76,25 +76,8 @@ const LandingPage = () => {
               Our motto: Har haath kitaab
             </p>
             <br />
-            {/* <div className="text-[1rem] hidden sm:hidden lg:hidden sm:text-[1.1rem] justify-self-center text-start w-[20rem] sm:w-[30rem] ml-7 mr-2 lg:text-start text-gray-700">
-              <ul className="space-y-4 font-medium ">
-                <li>To be accessible to every individual who needs books.</li>
-                <li>
-                  To collect books from as many people as possible and give them
-                  a chance to be a part of this initiative.
-                </li>
-                <li>
-                  To make people aware how important and valuable is their
-                  contribution towards the society.
-                </li>
-                <li>
-                  Since it is a donation (monetary) free NGO, we aim to
-                  encourage people to lend a helping hand to the needy.
-                </li>
-              </ul>
-            </div> */}
-            <div className="text-[1rem] font-medium sm:visible lg:visible sm:text-[1.1rem] justify-self-center text-start ml-2 lg:text-start text-gray-700">
-              <ul className="space-y-4 list-disc">
+            <div className="text-[1.2rem] font-semibold justify-self-center text-start ml-2 lg:text-start text-gray-700">
+              <ul className="space-y-4 list-disc text-gray-700 sm:text-[1.2rem]">
                 <li>To be accessible to every individual who needs books.</li>
                 <li>
                   To collect books from as many people as possible and give them

@@ -12,13 +12,13 @@ const AboutPage = () => {
           style={{
             backgroundImage: `url("/image-4@2x.png")`,
             height: "35vh",
-            width: "210vh",
+            width: "220vh",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
           }}
           className=" text-white text-[3.56rem] flex font-quicksand text-center items-center justify-center"
         >
-          <span className="mt-10 font-quicksand justify-self-center">About</span>
+          <span className="mt-12 font-quicksand justify-self-center">About</span>
         </div>
       </div>
       <div className=" grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 md:gap-x-6 justify-items-center place-items-center mb-8 mt-5">
