@@ -173,7 +173,7 @@ for (var i = 0; i < stringify.length; i++) {
 
     await axios({
       method: "post",
-      url: "http://localhost:8000/api/book",
+      url: "https://the-booktown-9hrj-awt7vh6qe-kshitijthareja.vercel.app/api/book",
       data: formField,
     }).then((response) => {
       console.log(response.data);

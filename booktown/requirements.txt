@@ -1,4 +1,7 @@
+antiorm==1.2.1
 asgiref==3.6.0
+db==0.1.1
+db-sqlite3==0.0.1
 Django==4.2.1
 django-cors-headers==3.14.0
 django-rest-framework==0.1.0

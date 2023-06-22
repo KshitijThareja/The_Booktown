@@ -20,7 +20,7 @@ export default async (req, res) => {
     }
 
     try {
-      await axios.post('http://localhost:8000/api/register/', body, config)
+      await axios.post('https://the-booktown-9hrj-awt7vh6qe-kshitijthareja.vercel.app/api/register/', body, config)
     } catch(error) {
       if (error.response) {
         // The request was made and the server responded with a status code

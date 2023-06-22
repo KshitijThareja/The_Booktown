@@ -21,7 +21,7 @@ export default async (req, res) => {
 				refresh
 			}
 
-			const { data } = await axios.post('http://localhost:8000/api/token/refresh/', body, config)
+			const { data } = await axios.post('https://the-booktown-9hrj-awt7vh6qe-kshitijthareja.vercel.app/api/token/refresh/', body, config)
 
 			if (data && data.access) {
 				const userConfig = {
@@ -30,7 +30,7 @@ export default async (req, res) => {
 					}
 				}
 
-				const { data:userData } = await axios.get('http://localhost:8000/api/user/', userConfig)
+				const { data:userData } = await axios.get('https://the-booktown-9hrj-awt7vh6qe-kshitijthareja.vercel.app/api/user/', userConfig)
 
 				res.status(200).json({ user: userData, access:data.access })
 			} else {

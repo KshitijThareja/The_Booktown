@@ -28,7 +28,7 @@ export const AuthenticationProvider = ({ children }) => {
 		}
 
 		try {
-			const { data: accessResponse } = await axios.post('http://localhost:3000/api/login', body, config)
+			const { data: accessResponse } = await axios.post('https://the-booktown-9hrj-awt7vh6qe-kshitijthareja.vercel.app/api/login', body, config)
 
 			console.log(accessResponse)
 
@@ -73,7 +73,7 @@ export const AuthenticationProvider = ({ children }) => {
 
 		try {
 			// call nextjs api function to create a user
-			await axios.post('http://localhost:3000/api/register', body, config)
+			await axios.post('https://the-booktown-9hrj-awt7vh6qe-kshitijthareja.vercel.app/api/register', body, config)
 			login({ username, password })
 		} catch (error) {
 			if (error.response && error.response.data) {
@@ -93,7 +93,7 @@ export const AuthenticationProvider = ({ children }) => {
 	}
 	const logout = async () => {
 		try {
-			await axios.post('http://localhost:3000/api/logout')
+			await axios.post('https://the-booktown-9hrj-awt7vh6qe-kshitijthareja.vercel.app/api/logout')
 			setUser(null)
 			setAccessToken(null)
 
@@ -114,13 +114,13 @@ export const AuthenticationProvider = ({ children }) => {
 		}
 		const checkUserLoggedIn = async () => {
 			try {
-				 const {data} = await axios.post('http://localhost:3000/api/user')
+				 const {data} = await axios.post('https://the-booktown-9hrj-awt7vh6qe-kshitijthareja.vercel.app/api/user')
 				 setUser(data.user)
 				 setAccessToken(data.access)
 
 			}
 			catch(error) {	
-				if (error.response & error.response.data) {
+				if (error.response & error.response) {
 					setError(error.response.data.message)
 					return
 				} else if (error.request) {

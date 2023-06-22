@@ -29,7 +29,12 @@ SECRET_KEY = str(os.getenv('SECRET'))
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-
+CORS_ORIGIN_WHITELIST=(
+    
+    'http://localhost:3000',
+    'https://thebooktown.vercel.app',
+)
+ACCESS_CONTROL_ALLOW_ORIGIN = "Access-Control-Allow-Origin"
 
 # Application definition
 REST_FRAMEWORK={'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',

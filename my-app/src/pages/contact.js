@@ -42,7 +42,7 @@ const Contact = () => {
 
     await axios({
       method: "post",
-      url: "http://localhost:8000/api/contact",
+      url: "https://the-booktown-9hrj-awt7vh6qe-kshitijthareja.vercel.app/api/contact",
       data: formField,
     }).then((response) => {
       console.log(response.data);

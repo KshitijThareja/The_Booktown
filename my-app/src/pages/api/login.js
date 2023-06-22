@@ -20,7 +20,7 @@ export default async (req, res) => {
     };
     try {
       const { data: accessResponse } = await axios.post(
-        "http://localhost:8000/api/token/",
+        "https://the-booktown-9hrj-awt7vh6qe-kshitijthareja.vercel.app/api/token/",
         body,
         config
       );
@@ -66,7 +66,7 @@ export default async (req, res) => {
       };
 
       const { data: userData } = await axios.get(
-        "http://localhost:8000/api/user/",
+        "https://the-booktown-9hrj-awt7vh6qe-kshitijthareja.vercel.app/api/user/",
         userConfig
       );
       console.log(userData);
