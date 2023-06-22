@@ -28,7 +28,7 @@ SECRET_KEY = str(os.getenv('SECRET'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["the-booktown-9hrj-9i7e926q2-kshitijthareja.vercel.app"]
 
 
 # Application definition
